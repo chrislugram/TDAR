@@ -20,34 +20,43 @@ public class ArmoredTowerMovement : MonoBehaviour {
     #region METHODS_UNITY
     void Start()
     {
-        InputGame.onMoveToLeft += InputGame_onMoveToLeft;
-        InputGame.onMoveToRight += InputGame_onMoveToRight;
+        InputGame.onMoveToLeft += MoveToLeft;
+        InputGame.onMoveToRight += MoveToRight;
     }
 
     void Update()
     {
         //Rotation X
+        Quaternion newRotation = Quaternion.identity;
+
         if (transformTarget != null)
         {
+            Debug.Log("Target: " + transformTarget.name);
             Vector3 relativePosition = transformTarget.position - transformXRotation.position;
-            Quaternion rotation = Quaternion.LookRotation(relativePosition);
-            transformXRotation.rotation = Quaternion.Euler(new Vector3(rotation.eulerAngles.x, transformXRotation.rotation.eulerAngles.y, transformXRotation.rotation.eulerAngles.z));
+            newRotation = Quaternion.LookRotation(relativePosition);
+            newRotation = Quaternion.Euler(new Vector3(newRotation.eulerAngles.x, 0, 0));
         }
+
+        transformXRotation.localRotation = Quaternion.Lerp(transformXRotation.localRotation, newRotation, Time.deltaTime * speedRotationX);
     }
     #endregion
 
     #region METHODS_CUSTOM
+    public void SetTarget(Transform t)
+    {
+        transformTarget = t;
+    }
     #endregion
 
     #region EVENTS
-    private void InputGame_onMoveToLeft()
-    {
-        transformYRotation.Rotate(0, speedRotationY * Time.deltaTime, 0);
-    }
-
-    private void InputGame_onMoveToRight()
+    private void MoveToLeft()
     {
         transformYRotation.Rotate(0, -speedRotationY * Time.deltaTime, 0);
+    }
+
+    private void MoveToRight()
+    {
+        transformYRotation.Rotate(0, speedRotationY * Time.deltaTime, 0);
     }
     #endregion
 }

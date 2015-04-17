@@ -82,6 +82,7 @@
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\WireframeBehaviour.cs" />
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\WireframeTrackableEventHandler.cs" />
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\WordBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Character\ArmoredTowerAnimation.cs" />
      <Compile Include="Assets\Scripts\Character\ArmoredTowerController.cs" />
      <Compile Include="Assets\Scripts\Character\ArmoredTowerGraphicsConf.cs" />
      <Compile Include="Assets\Scripts\Character\ArmoredTowerMovement.cs" />
