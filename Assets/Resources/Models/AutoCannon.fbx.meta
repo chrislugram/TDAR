@@ -1,0 +1,267 @@
+fileFormatVersion: 2
+guid: fc977c3b88711498d94b22462a83cdd4
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: ammo_1_1
+    100002: ammo_1_2
+    100004: ammo_2_1
+    100006: ammo_2_2
+    100008: ammo_up_1
+    100010: ammo_up_2
+    100012: //RootNode
+    100014: barrel_1_1
+    100016: barrel_2_1
+    100018: barrel_2_2
+    100020: barrel_3_1
+    100022: barrel_3_2
+    100024: barrel_3_3
+    100026: Body
+    100028: Body_Gyroscope
+    100030: body_parts
+    100032: cylinder
+    100034: diopter
+    100036: Gyroscope
+    100038: hammer
+    100040: hydraulic
+    100042: rotor1
+    100044: rotor2
+    100046: rotor3
+    100048: rouleman
+    100050: rouleman3
+    400000: ammo_1_1
+    400002: ammo_1_2
+    400004: ammo_2_1
+    400006: ammo_2_2
+    400008: ammo_up_1
+    400010: ammo_up_2
+    400012: //RootNode
+    400014: barrel_1_1
+    400016: barrel_2_1
+    400018: barrel_2_2
+    400020: barrel_3_1
+    400022: barrel_3_2
+    400024: barrel_3_3
+    400026: Body
+    400028: Body_Gyroscope
+    400030: body_parts
+    400032: cylinder
+    400034: diopter
+    400036: Gyroscope
+    400038: hammer
+    400040: hydraulic
+    400042: rotor1
+    400044: rotor2
+    400046: rotor3
+    400048: rouleman
+    400050: rouleman3
+    2300000: ammo_1_1
+    2300002: ammo_1_2
+    2300004: ammo_2_1
+    2300006: ammo_2_2
+    2300008: //RootNode
+    2300010: barrel_1_1
+    2300012: barrel_2_1
+    2300014: barrel_2_2
+    2300016: barrel_3_1
+    2300018: barrel_3_2
+    2300020: barrel_3_3
+    2300022: Body_Gyroscope
+    2300024: body_parts
+    2300026: cylinder
+    2300028: diopter
+    2300030: Gyroscope
+    2300032: hammer
+    2300034: hydraulic
+    2300036: rotor1
+    2300038: rotor2
+    2300040: rotor3
+    2300042: rouleman
+    2300044: rouleman3
+    3300000: ammo_1_1
+    3300002: ammo_1_2
+    3300004: ammo_2_1
+    3300006: ammo_2_2
+    3300008: //RootNode
+    3300010: barrel_1_1
+    3300012: barrel_2_1
+    3300014: barrel_2_2
+    3300016: barrel_3_1
+    3300018: barrel_3_2
+    3300020: barrel_3_3
+    3300022: Body_Gyroscope
+    3300024: body_parts
+    3300026: cylinder
+    3300028: diopter
+    3300030: Gyroscope
+    3300032: hammer
+    3300034: hydraulic
+    3300036: rotor1
+    3300038: rotor2
+    3300040: rotor3
+    3300042: rouleman
+    3300044: rouleman3
+    4300000: Base
+    4300002: Gyroscope
+    4300004: hydraulic
+    4300006: Body_Gyroscope
+    4300008: hammer
+    4300010: diopter
+    4300012: body_parts
+    4300014: ammo_1_1
+    4300016: ammo_1_2
+    4300018: ammo_2_1
+    4300020: ammo_2_2
+    4300022: cylinder
+    4300024: rotor2
+    4300026: barrel_2_1
+    4300028: rouleman
+    4300030: barrel_2_2
+    4300032: rotor1
+    4300034: barrel_1_1
+    4300036: rotor3
+    4300038: rouleman3
+    4300040: barrel_3_2
+    4300042: barrel_3_3
+    4300044: barrel_3_1
+    7400000: can_1
+    7400002: can_2
+    7400004: can_3
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 3
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: can_1
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 14
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: can_2
+      takeName: Take 001
+      firstFrame: 15
+      lastFrame: 22
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: can_3
+      takeName: Take 001
+      firstFrame: 23
+      lastFrame: 28.0000019
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

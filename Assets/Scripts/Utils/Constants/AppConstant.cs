@@ -14,7 +14,6 @@ public static class AppLayers{
 	public static readonly LayerMask	LAYER_ENEMY_BULLET = (LayerMask)9;
 	public static readonly LayerMask	LAYER_PC_BULLET = (LayerMask)11;
 	public static readonly LayerMask	LAYER_GROUND = (LayerMask)12;
-	public static readonly LayerMask	LAYER_TREE = (LayerMask)13;
 }
 
 public static class AppScenes{
