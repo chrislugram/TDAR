@@ -10,11 +10,16 @@ public class ArmoredTowerMovement : MonoBehaviour {
     public Transform transformXRotation;
     public float speedRotationY;
     public float speedRotationX;
+    public float offsetXRotation = 0;
 
     private Transform transformTarget;
     #endregion
 
     #region ACCESSORS
+    public Vector3 CanonDirection
+    {
+        get { return transformXRotation.forward; }
+    }
     #endregion
 
     #region METHODS_UNITY
@@ -31,10 +36,9 @@ public class ArmoredTowerMovement : MonoBehaviour {
 
         if (transformTarget != null)
         {
-            Debug.Log("Target: " + transformTarget.name);
             Vector3 relativePosition = transformTarget.position - transformXRotation.position;
             newRotation = Quaternion.LookRotation(relativePosition);
-            newRotation = Quaternion.Euler(new Vector3(newRotation.eulerAngles.x, 0, 0));
+            newRotation = Quaternion.Euler(new Vector3(newRotation.eulerAngles.x+offsetXRotation, 0, 0));
         }
 
         transformXRotation.localRotation = Quaternion.Lerp(transformXRotation.localRotation, newRotation, Time.deltaTime * speedRotationX);
@@ -44,7 +48,19 @@ public class ArmoredTowerMovement : MonoBehaviour {
     #region METHODS_CUSTOM
     public void SetTarget(Transform t)
     {
-        transformTarget = t;
+        if (transformTarget != null && t != null)
+        {
+            float distance = Vector3.Distance(this.transform.position, t.position);
+            if (distance < Vector3.Distance(this.transform.position, transformTarget.position))
+            {
+                transformTarget = t;
+            }
+        }
+        else
+        {
+            transformTarget = t;
+        }
+        
     }
     #endregion
 

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class ArmoredTowerAnimation : MonoBehaviour {
@@ -9,6 +10,8 @@ public class ArmoredTowerAnimation : MonoBehaviour {
 
     #region FIELDS
     public Animator animator;
+
+    private EventAnimation eventAnimation;
     #endregion
 
     #region ACCESSORS
@@ -23,11 +26,16 @@ public class ArmoredTowerAnimation : MonoBehaviour {
     #region METHODS_UNITY
     void Start()
     {
+        eventAnimation = animator.GetComponent<EventAnimation>();
         animator.SetInteger(PARAM_TOTAL_CANON, UserManager.Instance.SpeedArmoredTower + 1);
     }
     #endregion
 
     #region METHODS_CUSTOM
+    public void SetShootAction(Action action)
+    {
+        eventAnimation.eventAnimationAction = action;
+    }
     #endregion
 
     #region EVENTS

@@ -18,7 +18,7 @@ public static class AppLayers{
 
 public static class AppScenes{
 	public static readonly string	SCENE_INIT = "Init";
-	public static readonly string	SCENE_MAIN_MENU = "Menu";
+	public static readonly string	SCENE_MAIN_MENU = "MainMenu";
 	public static readonly string	SCENE_GAME = "Game";
 }
 

@@ -37,7 +37,6 @@ public class SceneLoader{
 	
 	#region METHODS_CUSTOM	
 	public static void LoadScene(string name){
-		Debug.Log ("cargo: " + name);
 		currentScene = name;
 
 		if (isLoading){

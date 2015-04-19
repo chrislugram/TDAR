@@ -11,6 +11,7 @@ public class Detector : MonoBehaviour {
 	#region FIELDS
 	public float					costumUpdateDeltaTime = 0.25f;
 	public LayerMask				layerMaskFind;
+    public bool                     saveInMemory = true;
 
 	[Range(0.1f, 100f)]
 	public float					detectRadious;
@@ -49,9 +50,18 @@ public class Detector : MonoBehaviour {
 				return o == null;
 			});
 
-			if (currentListElementDetected.Count == 0){
-				FindElement();
-			}
+            if (saveInMemory) 
+            {
+                if (currentListElementDetected.Count == 0)
+                {
+                    FindElement();
+                }
+            }
+            else
+            {
+                FindElement();
+            }
+			
 
 			yield return new WaitForSeconds(costumUpdateDeltaTime);
 		}

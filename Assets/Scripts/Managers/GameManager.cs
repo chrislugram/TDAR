@@ -5,12 +5,8 @@ using System.Collections.Generic;
 
 public class GameManager {
 	#region STATIC_ENUM_CONSTANTS
-	public static readonly string[]	PATH_ENEMIES_PREFAB = {
-                                                              "Game/Enemy/Enemy01",
-                                                              "Game/Enemy/Enemy02",
-                                                              "Game/Enemy/Enemy03"
-                                                          };
-	public static readonly string	PATH_CHARACTER_PREFAB = "Game/Character/TowerCharacter";
+    public static readonly int      MAX_TIME_IN_GAME = 60000;
+	public static readonly string	CHARACTER_GO_TAG = "Player";
 
 	public enum GAME_MODE{
 		NORMAL = 0,
@@ -21,7 +17,6 @@ public class GameManager {
 	#region FIELDS
 	private Game			    currentGame;
 	private GameStats		    currentGameStats;
-	private GameObject[]	    enemiesPrefab;
 	private GameObject		    characterGO;
     private GAME_MODE           gameMode;
 	private bool			    pauseFlag;
@@ -46,6 +41,7 @@ public class GameManager {
 
 	public GameObject Character{
 		get{ return characterGO; }
+        set{ characterGO = value; }
 	}
 
 	public GAME_MODE	GameMode{
@@ -79,44 +75,27 @@ public class GameManager {
     #region METHODS_CUSTOM
     public void SetGame(Game game){
 		currentGame = game;
-		currentGameStats = new GameStats ();
 	}
 
 	public void StartGame(){
         timeTask = TaskManager.Launch(TimeCounter());
+
         finishGameFlag = false;
         winFlag = false;
         pauseFlag = false;
+
+        characterGO = GameObject.FindGameObjectWithTag(CHARACTER_GO_TAG);
+
+        ResetStats();
 	}
 
 	public void ResetStats(){
 		currentGameStats = new GameStats ();
 	}
 
-    //TODO
-	public GameObject CreateCharacter(){
-		/*if (characterGO == null){
-			GameObject characterPrefab = (GameObject)Resources.Load(PATH_CHARACTER_PREFAB);
-			characterGO = (GameObject) GameObject.Instantiate(characterPrefab);
-		}
-		*/
-		return characterGO;
-	}
-
-    //TODO
-	public GameObject CreateEnemy(){
-		/*if (enemyPrefab == null){
-			enemyPrefab = (GameObject)Resources.Load(PATH_ENEMY_PREFAB);
-		}
-
-		GameObject enemyInstant = (GameObject) GameObject.Instantiate(enemyPrefab);
-		enemyInstances.Add (enemyInstant.transform);
-         * */
-        return characterGO;
-	}
-
 	public void EnemyDestroyed(){
 		currentGameStats.totalEnemyDestroyed++;
+        Debug.Log("Total enemigos destruidos: " + currentGameStats.totalEnemyDestroyed + ", tiempo: " + ((float)currentGameStats.timeGame / 1000));
 
 		/*if (currentGameStats.totalEnemyDestroyed == currentGame.totalEnemies) {
 			GameWin();
@@ -156,6 +135,11 @@ public class GameManager {
 			yield return new WaitForSeconds(0.1f);
 
 			currentGameStats.timeGame += 100;
+
+            if (currentGameStats.timeGame >= MAX_TIME_IN_GAME)
+            {
+                GameWin();
+            }
 		}
 	}
 	#endregion

@@ -10,6 +10,7 @@ public class EventAnimation : MonoBehaviour {
 	#endregion
 	
 	#region FIELDS
+    public bool     clearActionOnfishied = true;
 	public Action	eventAnimationAction = null;
 	#endregion
 	
@@ -19,7 +20,10 @@ public class EventAnimation : MonoBehaviour {
 			eventAnimationAction();
 		}
 
-		eventAnimationAction = null;
+        if (clearActionOnfishied)
+        {
+            eventAnimationAction = null;
+        }
 	}
 	#endregion
 }
