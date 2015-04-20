@@ -43,24 +43,24 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 0
-  textureType: 0
+  textureType: 5
   buildTargetSettings:
   - buildTarget: Web
     maxTextureSize: 256
-    textureFormat: -1
-    compressionQuality: -1
+    textureFormat: 12
+    compressionQuality: 0
   - buildTarget: Standalone
     maxTextureSize: 256
-    textureFormat: -1
-    compressionQuality: -1
+    textureFormat: 12
+    compressionQuality: 0
   - buildTarget: iPhone
     maxTextureSize: 128
-    textureFormat: -1
-    compressionQuality: -1
+    textureFormat: 33
+    compressionQuality: 0
   - buildTarget: Android
     maxTextureSize: 128
-    textureFormat: -1
-    compressionQuality: -1
+    textureFormat: 13
+    compressionQuality: 0
   - buildTarget: FlashPlayer
     maxTextureSize: 256
     textureFormat: -1
