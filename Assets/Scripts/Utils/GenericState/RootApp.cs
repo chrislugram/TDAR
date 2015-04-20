@@ -17,6 +17,7 @@ public class RootApp : MonoBehaviour{
 	public StateApp														currentState;
 	public StateReferenceApp.POPUP_TYPE_STATE							currentPopupTypeState;
 	public StateApp														currentPopupState;
+    public LoadingState                                                 loadingState;
 
 	protected Dictionary<StateReferenceApp.TYPE_STATE, string>			states; 
 	protected Dictionary<StateReferenceApp.POPUP_TYPE_STATE, string>	popupStates; 
@@ -157,13 +158,47 @@ public class RootApp : MonoBehaviour{
 
 	protected virtual IEnumerator LoadStateInOtherScene(StateReferenceApp.TYPE_STATE typeState, string newScene){
 
-		SceneLoader.LoadScene (newScene);
+        if (loadingState != null)
+        {//Active loading State
+            loadingState.gameObject.SetActive(true);
 
-		while(SceneLoader.IsLoading){
-			yield return null;
-		}
+            loadingState.In();
 
-		LoadStateInScene (typeState);
+            while (loadingState.InAnimation)
+            {
+                yield return null;
+            }
+
+            SceneLoader.LoadScene(newScene);
+
+            while (SceneLoader.IsLoading)
+            {
+                loadingState.SetProgress(SceneLoader.ProgressLoading);
+                yield return null;
+            }
+
+            LoadStateInScene(typeState);
+
+            loadingState.Out();
+
+            while (loadingState.InAnimation)
+            {
+                yield return null;
+            }
+
+            loadingState.gameObject.SetActive(false);
+        }
+        else
+        {
+            SceneLoader.LoadScene(newScene);
+
+            while (SceneLoader.IsLoading)
+            {
+                yield return null;
+            }
+
+            LoadStateInScene(typeState);
+        }
 	}
 	#endregion
 }

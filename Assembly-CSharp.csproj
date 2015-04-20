@@ -101,6 +101,7 @@
      <Compile Include="Assets\Scripts\UIStates\GameState.cs" />
      <Compile Include="Assets\Scripts\UIStates\InitState.cs" />
      <Compile Include="Assets\Scripts\UIStates\MainMenuState.cs" />
+     <Compile Include="Assets\Scripts\UIStates\TDARLoadingState.cs" />
      <Compile Include="Assets\Scripts\UIStates\TDARRoot.cs" />
      <Compile Include="Assets\Scripts\User\UserConfiguration.cs" />
      <Compile Include="Assets\Scripts\Utils\BehaviorTree\BTree.cs" />
@@ -111,6 +112,7 @@
      <Compile Include="Assets\Scripts\Utils\Detector\Detector.cs" />
      <Compile Include="Assets\Scripts\Utils\Detector\DetectorFOV.cs" />
      <Compile Include="Assets\Scripts\Utils\EventAnimation\EventAnimation.cs" />
+     <Compile Include="Assets\Scripts\Utils\GenericState\LoadingState.cs" />
      <Compile Include="Assets\Scripts\Utils\GenericState\RootApp.cs" />
      <Compile Include="Assets\Scripts\Utils\GenericState\StateApp.cs" />
      <Compile Include="Assets\Scripts\Utils\GenericState\StateManager.cs" />
