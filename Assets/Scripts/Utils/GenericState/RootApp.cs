@@ -30,7 +30,7 @@ public class RootApp : MonoBehaviour{
 	#endregion
 
 	#region METHODS_UNITY
-	void Awake(){
+	void Start(){
 		DontDestroyOnLoad (this.gameObject);
 
 
@@ -161,6 +161,8 @@ public class RootApp : MonoBehaviour{
         if (loadingState != null)
         {//Active loading State
             loadingState.gameObject.SetActive(true);
+
+            Debug.Log("loading: " + loadingState);
 
             loadingState.In();
 

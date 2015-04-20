@@ -22,14 +22,13 @@ public class ArmoredTowerGraphicsConf {
         //Show correct number of plasma condensators
         for (int i = 0; i < damageLevelsConf.Length; i++)
 		{
-            damageLevelsConf[i].SetActive(i <= UserManager.Instance.DamageArmoredTower);
+            damageLevelsConf[i].SetActive(i <= UserManager.Instance.UserConfiguration.lifeArmoredTower);
 		}
 
         //Show correct number of canons
         for (int i = 0; i < speedLevelsConf.Length; i++)
 		{
-            Debug.Log("speedarmor: " + UserManager.Instance.SpeedArmoredTower);
-            speedLevelsConf[i].SetActive(i == UserManager.Instance.SpeedArmoredTower);
+            speedLevelsConf[i].SetActive(i == UserManager.Instance.UserConfiguration.speedArmoredTower);
 		}
     }
     #endregion

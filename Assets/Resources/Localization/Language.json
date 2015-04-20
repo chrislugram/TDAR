@@ -2,7 +2,16 @@
     "es": {
     	"mainmenu_buttonplay": "Jugar",
 		"mainmenu_buttonupgrades": "Mejoras",
-		"mainmenu_buttonoptions": "Opciones"
+		"mainmenu_buttonoptions": "Opciones",
+		"mainmenu_buttonranking": "Ranking",
+		"mainmenu_buttonplayar": "Jugar en AR",
+		
+		"upgrade_buttonpulse": "Pulso EPM",
+		"upgrade_buttonexplosivebullet": "Balas Explosivas",
+		"upgrade_buttonattackspeed": "Cañones",
+		"upgrade_buttontrap": "Trampa explosiva",
+		"upgrade_buttonhealth": "Defensa",
+		"upgrade_buttonback": "Atras",
     },
 	"en":{
 	}

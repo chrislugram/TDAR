@@ -23,8 +23,8 @@ public class LoadingState : MonoBehaviour {
     #region METHODS_UNITY
     void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
         InitLoadingState();
+        DontDestroyOnLoad(this.gameObject);
     }
     #endregion
 

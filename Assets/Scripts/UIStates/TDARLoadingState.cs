@@ -20,6 +20,7 @@ public class TDARLoadingState : LoadingState{
     #region METHODS_CUSTOM
     public override void InitLoadingState()
     {
+        Debug.Log("ejecuto InitLoading");
         animator = GetComponent<Animator>();
         animated = false;
     }

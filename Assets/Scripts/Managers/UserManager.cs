@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 
 public class UserManager {
 	#region STATIC_ENUM_CONSTANTS
-    public static readonly string PATH_RESOURCES_USER_CONFIGURATION = "/User/UserConfiguration";
+    public static readonly string PATH_RESOURCES_USER_CONFIGURATION = "User/UserConfiguration";
     public static readonly string PATH_USER_CONFIGURATION = Application.persistentDataPath+"/UserConfiguration.xml";
 	#endregion
 	
@@ -17,20 +17,10 @@ public class UserManager {
 	#endregion
 	
 	#region ACCESSORS
-    public int DamageArmoredTower
+    public UserConfiguration UserConfiguration
     {
-        get
-        {
-            return userConfiguration.damageArmoredTower;
-        }
-    }
-
-    public int SpeedArmoredTower
-    {
-        get
-        {
-            return userConfiguration.speedArmoredTower;
-        }
+        get{ return userConfiguration; }
+        set { UserConfiguration = value; }
     }
 
     public static UserManager Instance
@@ -54,6 +44,7 @@ public class UserManager {
 	#region METHODS_CUSTOM
     public void Init(){
         if (!File.Exists(PATH_USER_CONFIGURATION)) {
+            Debug.Log("No existe..." + PATH_USER_CONFIGURATION);
             string userConfFile = Resources.Load(PATH_RESOURCES_USER_CONFIGURATION).ToString();
             File.WriteAllText(PATH_USER_CONFIGURATION, userConfFile);
         }

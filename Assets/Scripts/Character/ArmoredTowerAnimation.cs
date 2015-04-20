@@ -27,7 +27,7 @@ public class ArmoredTowerAnimation : MonoBehaviour {
     void Start()
     {
         eventAnimation = animator.GetComponent<EventAnimation>();
-        animator.SetInteger(PARAM_TOTAL_CANON, UserManager.Instance.SpeedArmoredTower + 1);
+        animator.SetInteger(PARAM_TOTAL_CANON, UserManager.Instance.UserConfiguration.speedArmoredTower + 1);
     }
     #endregion
 

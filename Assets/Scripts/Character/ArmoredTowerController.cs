@@ -73,7 +73,7 @@ public class ArmoredTowerController : MonoBehaviour {
     public void InitArmoredTower()
     {
         graphicConf.SetGraphicConf();
-        weapon.damageWeapon = UserManager.Instance.DamageArmoredTower;
+        weapon.damageWeapon = UserManager.Instance.UserConfiguration.lifeArmoredTower;
     }
     #endregion
 

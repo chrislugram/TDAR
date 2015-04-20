@@ -7,6 +7,8 @@ public class StateReferenceApp {
 	public static readonly string	MAIN_MENU					= "MainMenuState";
 	public static readonly string	GAME						= "GameState";
 	public static readonly string	END							= "EndState";
+    public static readonly string   UPGRADE                     = "UpgradeState";
+    public static readonly string   OPTIONS                     = "OptionsState";
 
 	public static readonly string	POPUP_ALERT					= "PopupErrorState";
 	
@@ -14,7 +16,9 @@ public class StateReferenceApp {
 		GAME						= 0,
 		MAIN_MENU					= 1,
 		INIT_MENU					= 2,
-		END							= 3
+		END							= 3,
+        UPGRADE                     = 4,
+        OPTIONS                     = 5
 	}
 
 	public enum POPUP_TYPE_STATE{

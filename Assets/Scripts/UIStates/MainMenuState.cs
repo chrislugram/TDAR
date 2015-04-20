@@ -33,5 +33,15 @@ public class MainMenuState : StateApp {
         GameManager.Instance.SetGame(newGame);
 		rootApp.ChangeState (StateReferenceApp.TYPE_STATE.GAME, AppScenes.SCENE_GAME);
 	}
+
+    public void OnUpgradeButtonAction()
+    {
+        rootApp.ChangeState(StateReferenceApp.TYPE_STATE.UPGRADE);
+    }
+
+    public void OnOptionsButtonAction()
+    {
+        rootApp.ChangeState(StateReferenceApp.TYPE_STATE.OPTIONS);
+    }
 	#endregion
 }

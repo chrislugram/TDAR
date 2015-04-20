@@ -86,6 +86,7 @@
      <Compile Include="Assets\Scripts\Character\ArmoredTowerController.cs" />
      <Compile Include="Assets\Scripts\Character\ArmoredTowerGraphicsConf.cs" />
      <Compile Include="Assets\Scripts\Character\ArmoredTowerMovement.cs" />
+     <Compile Include="Assets\Scripts\Character\ArmoredTowerUI.cs" />
      <Compile Include="Assets\Scripts\Character\ArmoredTowerWeapon.cs" />
      <Compile Include="Assets\Scripts\Character\Bullet.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyController.cs" />
@@ -103,6 +104,7 @@
      <Compile Include="Assets\Scripts\UIStates\MainMenuState.cs" />
      <Compile Include="Assets\Scripts\UIStates\TDARLoadingState.cs" />
      <Compile Include="Assets\Scripts\UIStates\TDARRoot.cs" />
+     <Compile Include="Assets\Scripts\UIStates\UpgradeState.cs" />
      <Compile Include="Assets\Scripts\User\UserConfiguration.cs" />
      <Compile Include="Assets\Scripts\Utils\BehaviorTree\BTree.cs" />
      <Compile Include="Assets\Scripts\Utils\BehaviorTree\Node.cs" />
@@ -144,6 +146,7 @@
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\VertexLitWithZ.shader" />
      <None Include="Assets\StreamingAssets\QCAR\TowerDefendsAR.xml" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\RenderVideoBackground.shader" />
+     <None Include="Assets\Resources\User\UserConfiguration.xml" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\VideoBackground.shader" />
      <None Include="Assets\license_3rdpartynotice.txt" />
      <None Include="Assets\KY_effects\MagicEffectsPackFree\ReadMe.txt" />
