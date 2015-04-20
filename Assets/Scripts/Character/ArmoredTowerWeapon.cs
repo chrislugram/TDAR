@@ -9,16 +9,37 @@ public class ArmoredTowerWeapon : Spawner
     #endregion
 
     #region FIELDS
-    public int damageWeapon;
+    public float timeGranade = 5f;
+
+    private bool granadeWeapon = false;
+    private float currentTimeGranade = 0;
     #endregion
 
     #region ACCESSORS
     #endregion
 
     #region METHODS_UNITY
+    void Update()
+    {
+        if (granadeWeapon)
+        {
+            Debug.Log("Granadas activadas");
+            currentTimeGranade += Time.deltaTime;
+            if (currentTimeGranade > timeGranade)
+            {
+                granadeWeapon = false;
+            }
+        }
+    }
     #endregion
 
     #region METHODS_CUSTOM
+    public void ActivateGranade()
+    {
+        granadeWeapon = true;
+        currentTimeGranade = 0;
+    }
+
     protected override void SpawnElementAction(GameObject spawnElementGO)
     {
         spawnElementGO.GetComponent<SpawnElement>().Initialized(this);
@@ -34,8 +55,15 @@ public class ArmoredTowerWeapon : Spawner
 
         if (spawnElements.Count == 0)
         {
-            Debug.Log("Damage: " + damageWeapon);
-            spawnElementInstance = (GameObject)Instantiate(spawnElementsPrefab[damageWeapon], spawnPointSelected.position, Quaternion.identity);
+            spawnElementInstance = (GameObject)Instantiate(spawnElementsPrefab[0], spawnPointSelected.position, Quaternion.identity);
+            if (!granadeWeapon)
+            {
+                spawnElementInstance.GetComponent<Bullet>().InitNormal();
+            }
+            else
+            {
+                spawnElementInstance.GetComponent<Bullet>().InitGranade();
+            }
             spawnElementInstance.name = spawnElementInstance.name + "_" + totalSpawnerElementCreated;
             totalSpawnerElementCreated++;
         }
@@ -44,6 +72,14 @@ public class ArmoredTowerWeapon : Spawner
             spawnElementInstance = spawnElements.Dequeue();
             if (spawnElementInstance != null && spawnPointSelected != null)
             {
+                if (!granadeWeapon)
+                {
+                    spawnElementInstance.GetComponent<Bullet>().InitNormal();
+                }
+                else
+                {
+                    spawnElementInstance.GetComponent<Bullet>().InitGranade();
+                }
                 spawnElementInstance.transform.position = spawnPointSelected.position;
                 spawnElementInstance.transform.rotation = Quaternion.identity;
                 spawnElementInstance.SetActive(true);

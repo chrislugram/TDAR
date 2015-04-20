@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class GameManager {
 	#region STATIC_ENUM_CONSTANTS
-    public static readonly int      MAX_TIME_IN_GAME = 60000;
+    public static readonly int      MAX_TIME_IN_GAME = 600000;
 	public static readonly string	CHARACTER_GO_TAG = "Player";
 
 	public enum GAME_MODE{
@@ -50,7 +50,16 @@ public class GameManager {
 	}
 
 	public int	TimeGame{
-		get{ return currentGameStats.timeGame; }
+		get{
+            if (currentGameStats == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return currentGameStats.timeGame;
+            }
+        }
 	}
 
 	public bool	WinGame{

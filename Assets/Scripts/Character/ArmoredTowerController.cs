@@ -73,7 +73,13 @@ public class ArmoredTowerController : MonoBehaviour {
     public void InitArmoredTower()
     {
         graphicConf.SetGraphicConf();
-        weapon.damageWeapon = UserManager.Instance.UserConfiguration.lifeArmoredTower;
+        health.SetInitHealth(100 * (UserManager.Instance.UserConfiguration.lifeArmoredTower + 1));
+    }
+
+    public void ActiveGranadeWeapon()
+    {
+        Debug.Log("Activamos las grandas");
+        weapon.ActivateGranade();
     }
     #endregion
 

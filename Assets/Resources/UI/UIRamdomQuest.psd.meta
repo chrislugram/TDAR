@@ -1,12 +1,15 @@
 fileFormatVersion: 2
 guid: 3c55cd4ba868f6740b22048e945bd994
-timeCreated: 1429464273
+timeCreated: 1429546738
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: square
     21300002: frame_total
     21300004: frame_empty
+    21300006: circle_empty
+    21300008: circle_full
+    21300010: arrow
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -61,7 +64,7 @@ TextureImporter:
         height: 26
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 1, y: 1, z: 1, w: 1}
+      border: {x: 12, y: 12, z: 12, w: 12}
     - name: frame_total
       rect:
         serializedVersion: 2
@@ -82,6 +85,36 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 11, y: 4, z: 11, w: 4}
+    - name: circle_empty
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 436
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: circle_full
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 390
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arrow
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 263
+        width: 229
+        height: 248
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

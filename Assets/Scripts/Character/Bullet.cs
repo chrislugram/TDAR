@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Bullet : SpawnElement {
 	#region STATIC_ENUM_CONSTANTS
 	#endregion
 	
 	#region FIELDS
+    public float radiusGranade = 10;
+
+    private bool isGranade = false;
 	#endregion
 	
 	#region ACCESSORS
@@ -31,15 +35,45 @@ public class Bullet : SpawnElement {
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		if (collision.gameObject.layer == AppLayers.LAYER_ENEMY) {
-            collision.gameObject.GetComponent<EnemyController>().DamageEnemy();
-		}
+        if (isGranade)
+        {
+            Explode();
+        }
+        else
+        {
+            if (collision.gameObject.layer == AppLayers.LAYER_ENEMY) {
+                collision.gameObject.GetComponent<EnemyController>().DamageEnemy();
+		    }
+        }
 
 		Desactive ();
 	}
 	#endregion
 	
 	#region METHODS_CUSTOM
+    public void InitNormal()
+    {
+        isGranade = false;
+    }
+
+    public void InitGranade()
+    {
+        isGranade = true;
+    }
+
+    public void Explode()
+    {
+        List<GameObject> currentListElementDetected = new List<GameObject>();
+        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, radiusGranade);
+
+        for (int i=0; i<hitColliders.Length; i++){
+			if ((hitColliders[i].gameObject.layer == AppLayers.LAYER_ENEMY) && !(currentListElementDetected.Contains(hitColliders[i].gameObject))){
+				currentListElementDetected.Add(hitColliders[i].gameObject);
+                hitColliders[i].gameObject.GetComponent<EnemyController>().DamageEnemy();
+			}
+		}
+    }
+
 	public override void Initialized (Spawner spawner){
 		base.Initialized (spawner);
 

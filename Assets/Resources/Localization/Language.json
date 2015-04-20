@@ -7,11 +7,15 @@
 		"mainmenu_buttonplayar": "Jugar en AR",
 		
 		"upgrade_buttonpulse": "Pulso EPM",
-		"upgrade_buttonexplosivebullet": "Balas Explosivas",
+		"upgrade_buttonexplosivebullet": "Granada",
 		"upgrade_buttonattackspeed": "Cañones",
-		"upgrade_buttontrap": "Trampa explosiva",
+		"upgrade_buttontrap": "Trampa",
 		"upgrade_buttonhealth": "Defensa",
 		"upgrade_buttonback": "Atras",
+
+		"game_buttonpulse":"Pulso EPM",
+		"game_buttontrap":"Trampa",
+		"game_buttonexplosivebullet":"Granada"
     },
 	"en":{
 	}
