@@ -7,10 +7,6 @@ public class MainMenuState : StateApp {
 	#endregion
 	
 	#region FIELDS
-	public Text		labelTotalEnemies;
-	public Text		labelMaxSpeed;
-	public Text		labelBestTime;
-
 	private Game	newGame;
 	#endregion
 	
@@ -25,22 +21,28 @@ public class MainMenuState : StateApp {
 		base.Activate ();
 
         newGame = new Game();
+
+        AudioManager.Instance.PlayMusic(AudioManager.MUSIC_MAIN_MENU, true);
 	}
 	#endregion
 	
 	#region EVENTS
 	public void OnPlayButtonAction(){
         GameManager.Instance.SetGame(newGame);
+        AudioManager.Instance.StopMusic(AudioManager.MUSIC_MAIN_MENU);
+        AudioManager.Instance.PlayFXSound(AudioManager.BUTTON);
 		rootApp.ChangeState (StateReferenceApp.TYPE_STATE.GAME, AppScenes.SCENE_GAME);
 	}
 
     public void OnUpgradeButtonAction()
     {
+        AudioManager.Instance.PlayFXSound(AudioManager.BUTTON);
         rootApp.ChangeState(StateReferenceApp.TYPE_STATE.UPGRADE);
     }
 
     public void OnOptionsButtonAction()
     {
+        AudioManager.Instance.PlayFXSound(AudioManager.BUTTON);
         rootApp.ChangeState(StateReferenceApp.TYPE_STATE.OPTIONS);
     }
 	#endregion

@@ -26,3 +26,10 @@ public static class AppFiles{
 	public static readonly string 	FILE_USER = Application.persistentDataPath+"/configuration.json";
 	public static readonly string	RESOURCES_FILE_USER = "JSON/configuration";
 }
+
+public static class AppPlayerPrefKeys
+{
+    public static readonly string KEY_USER_MUSIC_VOLUME = "music";
+    public static readonly string KEY_USER_SFX_VOLUME = "sfx";
+
+}

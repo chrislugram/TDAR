@@ -15,8 +15,34 @@
 
 		"game_buttonpulse":"Pulso EPM",
 		"game_buttontrap":"Trampa",
-		"game_buttonexplosivebullet":"Granada"
+		"game_buttonexplosivebullet":"Granada",
+
+		"options_fx":"FX",
+		"options_music":"Música",
+		"options_english":"Inglés",
+		"options_spanish":"Español"
     },
 	"en":{
+		"mainmenu_buttonplay": "Jugar",
+		"mainmenu_buttonupgrades": "Mejoras",
+		"mainmenu_buttonoptions": "Opciones",
+		"mainmenu_buttonranking": "Ranking",
+		"mainmenu_buttonplayar": "Jugar en AR",
+		
+		"upgrade_buttonpulse": "Pulso EPM",
+		"upgrade_buttonexplosivebullet": "Granada",
+		"upgrade_buttonattackspeed": "Cañones",
+		"upgrade_buttontrap": "Trampa",
+		"upgrade_buttonhealth": "Defensa",
+		"upgrade_buttonback": "Atras",
+
+		"game_buttonpulse":"Pulso EPM",
+		"game_buttontrap":"Trampa",
+		"game_buttonexplosivebullet":"Granada",
+
+		"options_fx":"FX",
+		"options_music":"Music",
+		"options_english":"English",
+		"options_spanish":"Spanish"
 	}
 }

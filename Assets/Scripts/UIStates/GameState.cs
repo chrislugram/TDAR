@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 
 public class GameState : StateApp {
@@ -13,6 +14,8 @@ public class GameState : StateApp {
 	#endregion
 	
 	#region FIELDS
+    public static event Action onTrapActivate = delegate { };
+
     public StageController stageController;
 
     public Text countPlasma;
@@ -55,12 +58,22 @@ public class GameState : StateApp {
 
     private void TrapAttack()
     {
-        
+        if (UserManager.Instance.UserConfiguration.totalTraps > 0)
+        {
+            onTrapActivate();
+            UserManager.Instance.UserConfiguration.totalTraps--;
+            UserManager.Instance.SaveUserConfiguration();
+        }
     }
 
     private void PulseAttack()
     {
-        
+        if (UserManager.Instance.UserConfiguration.totalPulses > 0)
+        {
+            GameManager.Instance.Character.GetComponent<ArmoredTowerController>().ActivePulseWeapon();
+            UserManager.Instance.UserConfiguration.totalPulses--;
+            UserManager.Instance.SaveUserConfiguration();
+        }
     }
 
     private void GranadeAttack()
@@ -69,6 +82,7 @@ public class GameState : StateApp {
         {
             GameManager.Instance.Character.GetComponent<ArmoredTowerController>().ActiveGranadeWeapon();
             UserManager.Instance.UserConfiguration.totalExplosiveBullet--;
+            UserManager.Instance.SaveUserConfiguration();
         }
     }
 	#endregion

@@ -13,6 +13,9 @@ public class ArmoredTowerController : MonoBehaviour {
     [SerializeField]
     public ArmoredTowerGraphicsConf graphicConf;
 
+    public ParticleSystem pulsePS;
+    public float radiusPulse = 25;
+
     private ArmoredTowerMovement movement;
     private DetectorFOV detector;
     private ArmoredTowerAnimation animation;
@@ -41,6 +44,8 @@ public class ArmoredTowerController : MonoBehaviour {
         health = GetComponent<Health>();
         health.onReciveDamage += ReciveDamage;
         health.onDeath += Death;
+
+        pulsePS.Stop();
 
         InitArmoredTower();
     }
@@ -74,6 +79,22 @@ public class ArmoredTowerController : MonoBehaviour {
     {
         graphicConf.SetGraphicConf();
         health.SetInitHealth(100 * (UserManager.Instance.UserConfiguration.lifeArmoredTower + 1));
+    }
+
+    public void ActivePulseWeapon()
+    {
+        pulsePS.Play();
+        List<GameObject> currentListElementDetected = new List<GameObject>();
+        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, radiusPulse);
+
+        for (int i = 0; i < hitColliders.Length; i++)
+        {
+            if ((hitColliders[i].gameObject.layer == AppLayers.LAYER_ENEMY) && !(currentListElementDetected.Contains(hitColliders[i].gameObject)))
+            {
+                currentListElementDetected.Add(hitColliders[i].gameObject);
+                hitColliders[i].gameObject.GetComponent<EnemyController>().DamageEnemy();
+            }
+        }
     }
 
     public void ActiveGranadeWeapon()

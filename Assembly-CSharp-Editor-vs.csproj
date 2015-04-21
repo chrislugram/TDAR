@@ -52,6 +52,7 @@
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\link.xml" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\VertexLitWithZ.shader" />
+     <None Include="Assets\Resources\FXsounds\Music\ReadMe.txt" />
      <None Include="Assets\StreamingAssets\QCAR\TowerDefendsAR.xml" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\RenderVideoBackground.shader" />
      <None Include="Assets\Resources\User\UserConfiguration.xml" />

@@ -128,7 +128,7 @@ public class UpgradeState : StateApp
     public void OnBuyButton(int typeUpgrade)
     {
         UPGRADE_TYPE upgrade = (UPGRADE_TYPE)typeUpgrade;
-        Debug.Log("Compro: " + upgrade);
+        
         if (upgrade == UPGRADE_TYPE.EXPLOSIVE_BULLET)
         {
             BuyExplosiveBullet();
@@ -153,10 +153,13 @@ public class UpgradeState : StateApp
         UserManager.Instance.SaveUserConfiguration();
         UpdateUI();
         armoredUI.UpdateUI();
+
+        AudioManager.Instance.PlayFXSound(AudioManager.BUTTON);
     }
 
     public void OnBackButtonAction()
     {
+        AudioManager.Instance.PlayFXSound(AudioManager.BUTTON);
         rootApp.ChangeState(StateReferenceApp.TYPE_STATE.MAIN_MENU);
     }
     #endregion

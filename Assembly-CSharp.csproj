@@ -96,6 +96,8 @@
      <Compile Include="Assets\Scripts\Game\InputGame.cs" />
      <Compile Include="Assets\Scripts\Game\StageController.cs" />
      <Compile Include="Assets\Scripts\Game\StageEnemyInfo.cs" />
+     <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\Extra\AudioSample.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\UserManager.cs" />
      <Compile Include="Assets\Scripts\Test\TestFiles.cs" />
@@ -103,6 +105,7 @@
      <Compile Include="Assets\Scripts\UIStates\GameState.cs" />
      <Compile Include="Assets\Scripts\UIStates\InitState.cs" />
      <Compile Include="Assets\Scripts\UIStates\MainMenuState.cs" />
+     <Compile Include="Assets\Scripts\UIStates\OptionsState.cs" />
      <Compile Include="Assets\Scripts\UIStates\TDARLoadingState.cs" />
      <Compile Include="Assets\Scripts\UIStates\TDARRoot.cs" />
      <Compile Include="Assets\Scripts\UIStates\UpgradeState.cs" />
@@ -138,13 +141,10 @@
      <Compile Include="Assets\Scripts\Utils\TaskManager\CoroutineTask.cs" />
      <Compile Include="Assets\Scripts\Utils\TaskManager\TaskManager.cs" />
      <Compile Include="Assets\Scripts\Utils\UtilClass\Util.cs" />
-     <Compile Include="Assets\Tazo_fx\Script\ActiveSelf.cs" />
-     <Compile Include="Assets\Tazo_fx\Script\AnimateTiledTextureOnTrail.cs" />
-     <Compile Include="Assets\Tazo_fx\Script\BillBoard.cs" />
-     <Compile Include="Assets\Tazo_fx\Script\DestroySelf.cs" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\link.xml" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\VertexLitWithZ.shader" />
+     <None Include="Assets\Resources\FXsounds\Music\ReadMe.txt" />
      <None Include="Assets\StreamingAssets\QCAR\TowerDefendsAR.xml" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\RenderVideoBackground.shader" />
      <None Include="Assets\Resources\User\UserConfiguration.xml" />

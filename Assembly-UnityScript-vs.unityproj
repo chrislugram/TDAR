@@ -48,14 +48,10 @@
   <ItemGroup>
      <Compile Include="Assets\KY_effects\Script\ConGUI.js" />
      <Compile Include="Assets\KY_effects\Script\Lighting.js" />
-     <Compile Include="Assets\Tazo_fx\Script\Red_UVScroller.js" />
-     <Compile Include="Assets\Tazo_fx\Script\Red_destroyThisTimed.js" />
-     <Compile Include="Assets\Tazo_fx\Script\Red_randomRotation.js" />
-     <Compile Include="Assets\Tazo_fx\Script\Red_rotateThis.js" />
-     <Compile Include="Assets\Tazo_fx\Script\Red_trailFade.js" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\link.xml" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\VertexLitWithZ.shader" />
+     <None Include="Assets\Resources\FXsounds\Music\ReadMe.txt" />
      <None Include="Assets\StreamingAssets\QCAR\TowerDefendsAR.xml" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\RenderVideoBackground.shader" />
      <None Include="Assets\Resources\User\UserConfiguration.xml" />
