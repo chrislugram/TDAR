@@ -39,14 +39,13 @@ public class ArmoredTowerMovement : MonoBehaviour {
 
             if (transformTarget != null && transformTarget.gameObject.activeSelf)
             {
-                Vector3 relativePosition = transformTarget.position - transformXRotation.position;
+                Vector3 relativePosition = (transformTarget.position + transformTarget.GetComponent<BoxCollider>().center) - transformXRotation.position;
                 newRotation = Quaternion.LookRotation(relativePosition);
                 newRotation = Quaternion.Euler(new Vector3(newRotation.eulerAngles.x + offsetXRotation, 0, 0));
             }
 
             transformXRotation.localRotation = Quaternion.Lerp(transformXRotation.localRotation, newRotation, Time.deltaTime * speedRotationX);
         }
-       
     }
 
     void OnDestroy()
@@ -83,7 +82,7 @@ public class ArmoredTowerMovement : MonoBehaviour {
     #region EVENTS
     private void Nothing()
     {
-        if (!GameManager.Instance.FinishedGame)
+        if (!GameManager.Instance.FinishedGame && !GameManager.Instance.IsPaused)
         {
             AudioManager.Instance.StopFXSound(AudioManager.MOVE_TOWER);
         }
@@ -91,7 +90,7 @@ public class ArmoredTowerMovement : MonoBehaviour {
 
     private void MoveToLeft()
     {
-        if (!GameManager.Instance.FinishedGame)
+        if (!GameManager.Instance.FinishedGame && !GameManager.Instance.IsPaused)
         {
             AudioManager.Instance.PlayFXSound(AudioManager.MOVE_TOWER, true, 0.2f, true);
             transformYRotation.Rotate(0, -speedRotationY * Time.deltaTime, 0);
@@ -100,7 +99,7 @@ public class ArmoredTowerMovement : MonoBehaviour {
 
     private void MoveToRight()
     {
-        if (!GameManager.Instance.FinishedGame)
+        if (!GameManager.Instance.FinishedGame && !GameManager.Instance.IsPaused)
         {
             AudioManager.Instance.PlayFXSound(AudioManager.MOVE_TOWER, true, 0.2f, true);
             transformYRotation.Rotate(0, speedRotationY * Time.deltaTime, 0);

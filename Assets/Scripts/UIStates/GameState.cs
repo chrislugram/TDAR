@@ -24,6 +24,8 @@ public class GameState : StateApp {
     public Text totalTrap;
     public Image healthFilled;
     public Text time;
+    public GameObject pauseGO;
+    public GameObject playGO;
 	#endregion
 	
 	#region ACCESSORS
@@ -104,7 +106,12 @@ public class GameState : StateApp {
 
     public void OnPauseButtonAction()
     {
-        //TODO: Create pause state
+        GameManager.Instance.Pause();
+
+        playGO.SetActive(GameManager.Instance.IsPaused);
+        pauseGO.SetActive(!GameManager.Instance.IsPaused);
+        AudioManager.Instance.PlayFXSound(AudioManager.BUTTON);
+        AudioManager.Instance.StopFXSound(AudioManager.MOVE_TOWER);
     }
 
     public void OnWeaponButtonAction(int weaponType)
@@ -125,6 +132,7 @@ public class GameState : StateApp {
         }
 
         UpdateUI();
+        AudioManager.Instance.PlayFXSound(AudioManager.BUTTON);
     }
 	#endregion
 }

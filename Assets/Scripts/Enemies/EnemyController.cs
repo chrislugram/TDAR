@@ -3,7 +3,6 @@ using System.Collections;
 
 public class EnemyController : MonoBehaviour {
     #region STATIC_ENUM_CONSTANTS
-    public static readonly string PARAM_DEATH = "Death";
     public static readonly string PARAM_END_GAME = "EndGame";
     #endregion
 
@@ -11,6 +10,8 @@ public class EnemyController : MonoBehaviour {
     public int initHealth = 1;
     public int damage = 40;
     public int plasma = 2;
+    public ParticleSystem deathPS;
+    public Transform parentDeathPS;
 
     public Animator animatorEnemy;
 
@@ -32,6 +33,7 @@ public class EnemyController : MonoBehaviour {
     {
         navMesh = GetComponent<NavMeshAgent>();
         GameManager.Instance.onEndGame += EndGame;
+        deathPS.transform.parent = null;
     }
 
     void Update()
@@ -86,18 +88,20 @@ public class EnemyController : MonoBehaviour {
 
         AudioManager.Instance.PlayFXSound(AudioManager.DEATH_ENEMY, false, 0.5f);
 
-        animatorEnemy.SetTrigger(PARAM_DEATH);
-        animatorEnemy.GetComponent<EventAnimation>().eventAnimationAction = () =>
-        {
-            this.gameObject.SetActive(false);
-        };
+        deathPS.transform.position = parentDeathPS.transform.position;
+        deathPS.Play();
+
+        this.gameObject.SetActive(false);
     }
 
     protected virtual void EndGame()
     {
         endGameFlag = true;
-        navMesh.SetDestination(this.transform.position);
-        animatorEnemy.SetBool(PARAM_END_GAME, true);
+        if (this.gameObject.activeSelf)
+        {
+            navMesh.SetDestination(this.transform.position);
+            animatorEnemy.SetBool(PARAM_END_GAME, true);
+        }       
     }
     #endregion
 

@@ -125,7 +125,7 @@ public class ArmoredTowerController : MonoBehaviour {
 
     private void ReciveDamage(float life)
     {
-        Debug.Log("VIDA: "+life);
+        AudioManager.Instance.PlayFXSound(AudioManager.DAMAGE_TOWER, false, 0.5f);
     }
 
     private void Death()

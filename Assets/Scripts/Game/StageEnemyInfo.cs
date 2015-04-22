@@ -23,7 +23,8 @@ public class StageEnemyInfo
     #region METHODS_CUSTOM
     public bool IsSelected()
     {
-        float fRandom = UnityEngine.Random.Range(0, 1);
+        float fRandom = UnityEngine.Random.Range(0, 100);
+        fRandom = fRandom / 100f;
         return (fRandom <= initPercEnemy);
     }
 

@@ -17,6 +17,7 @@ public class AudioManager
     public static readonly string BUTTON = "FXsounds/UI/Button01";
     public static readonly string SHOOT = "FXsounds/FX/Shoot";
     public static readonly string EXPLOTION = "FXsounds/FX/Explosion";
+    public static readonly string DAMAGE_TOWER = "FXsounds/ArmoredTower/Cannon_2";
     public static readonly string FIRE = "FXsounds/FX/Fire";
     public static readonly string MOVE_TOWER = "FXsounds/ArmoredTower/SmallElectricalMotor_3";
     public static readonly string DEATH_ENEMY = "FXsounds/FX/Muerte_enemigo";
@@ -178,7 +179,7 @@ public class AudioManager
     {
         foreach (AudioSample entry in cacheFXSounds)
         {
-            if (entry.AudioClipResource == name)
+            if (entry.AudioClipResource == name && entry.IsPlaying)
             {
                 entry.Stop();
             }

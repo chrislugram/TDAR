@@ -1,0 +1,10 @@
+diff a/Assets/Scenes/MainMenu/LightmapSnapshot.asset.meta b/Assets/Scenes/MainMenu/LightmapSnapshot.asset.meta	(rejected hunks)
+@@ -0,0 +1,8 @@
++fileFormatVersion: 2
++guid: da3655bc53e13de4c8dd218484c141cb
++timeCreated: 1429715541
++licenseType: Free
++NativeFormatImporter:
++  userData: 
++  assetBundleName: 
++  assetBundleVariant: 

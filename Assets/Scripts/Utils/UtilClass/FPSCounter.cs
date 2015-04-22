@@ -1,0 +1,60 @@
+﻿/* **************************************************************************
+ * FPS COUNTER
+ * **************************************************************************
+ * Written by: Annop "Nargus" Prapasapong
+ * Created: 7 June 2012
+ * *************************************************************************/
+
+using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+
+/* **************************************************************************
+ * CLASS: FPS COUNTER
+ * *************************************************************************/
+[RequireComponent(typeof(GUIText))]
+public class FPSCounter : MonoBehaviour
+{
+    /* Public Variables */
+    public float frequency = 0.5f;
+    public Text fpsText;
+    /* **********************************************************************
+     * PROPERTIES
+     * *********************************************************************/
+    public int FramesPerSec { get; protected set; }
+
+    /* **********************************************************************
+     * EVENT HANDLERS
+     * *********************************************************************/
+    /*
+     * EVENT: Start
+     */
+    private void Start()
+    {
+        DontDestroyOnLoad(this.gameObject);
+        StartCoroutine(FPS());
+    }
+
+    /*
+     * EVENT: FPS
+     */
+    private IEnumerator FPS()
+    {
+        while(true)
+        {
+            // Capture frame-per-second
+            int lastFrameCount = Time.frameCount;
+            float lastTime = Time.realtimeSinceStartup;
+            yield return new WaitForSeconds(frequency);
+            float timeSpan = Time.realtimeSinceStartup - lastTime;
+            int frameCount = Time.frameCount - lastFrameCount;
+
+            // Display it
+            FramesPerSec = Mathf.RoundToInt(frameCount / timeSpan);
+            if (fpsText != null)
+            {
+                fpsText.text = FramesPerSec + " FPS";
+            }
+        }
+    }
+}

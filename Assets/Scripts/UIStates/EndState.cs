@@ -21,30 +21,41 @@ public class EndState : StateApp {
 	public override void Activate (){
 		base.Activate ();
 
-		/*if (GameManager.WinGame) {
-			textWinFail.text = "YOU WIN";
+        string message = "";
 
-			int maxMiliseconds = UserManager.GetBestTimeOf (GameManager.CurrentGame.totalEnemies);
-			
-			if (maxMiliseconds > GameManager.TimeGame) {
-				UserManager.SetBestTimeOf(GameManager.CurrentGame.totalEnemies, GameManager.TimeGame);
-			}
-		} else {
-			textWinFail.text = "YOU FAIL";
-		}
+        if (UserManager.Instance.UserConfiguration.bestTime < GameManager.Instance.TimeGame)
+        {
+            UserManager.Instance.UserConfiguration.bestTime = GameManager.Instance.TimeGame;
+            message += LocalizationApp.TextApp("endgame_besttime");
+        }
 
-		textTime.text = Util.MilisecondsInClockFormat (GameManager.TimeGame);
-         * */
+        if (GameManager.Instance.WinGame)
+        {
+            message += LocalizationApp.TextApp("endgame_win");
+        }
+        else
+        {
+            message += LocalizationApp.TextApp("endgame_fail");
+        }
+
+        textWinFail.text = message;
+        textTime.text = Util.MilisecondsInClockFormat(GameManager.Instance.TimeGame);
+
+        UserManager.Instance.UserConfiguration.totalPlasma += GameManager.Instance.Plasma;
+        UserManager.Instance.SaveUserConfiguration();
 	}
 	#endregion
 	
 	#region EVENTS
-	public void OnRetryButtonAction(){
-		//GameManager.ResetStats ();
-		rootApp.ChangeState (StateReferenceApp.TYPE_STATE.GAME, AppScenes.SCENE_GAME);
-	}
+    public void OnRetryButtonAction()
+    {
+        AudioManager.Instance.PlayFXSound(AudioManager.BUTTON);
+        AudioManager.Instance.Clear();
+        rootApp.ChangeState(StateReferenceApp.TYPE_STATE.GAME, AppScenes.SCENE_GAME);
+    }
 
-	public void OnChangeLevelButtonAction(){
+	public void OnBackButtonAction(){
+        AudioManager.Instance.PlayFXSound(AudioManager.BUTTON);
 		rootApp.ChangeState (StateReferenceApp.TYPE_STATE.MAIN_MENU, AppScenes.SCENE_MAIN_MENU);
 	}
 	#endregion

@@ -5,11 +5,11 @@ using UnityEngine.UI;
 public class UpgradeState : StateApp
 {
     #region STATIC_ENUM_CONSTANTS
-    public static readonly int PRICE_EXTRA_LIFE = 100;
-    public static readonly int PRICE_EXTRA_SPEED = 100;
-    public static readonly int PRICE_EXPLOSIVE_BULLET = 200;
-    public static readonly int PRICE_TRAP = 200;
-    public static readonly int PRICE_PULSE = 200;
+    public static readonly int PRICE_EXTRA_LIFE = 150;
+    public static readonly int PRICE_EXTRA_SPEED = 150;
+    public static readonly int PRICE_EXPLOSIVE_BULLET = 100;
+    public static readonly int PRICE_TRAP = 100;
+    public static readonly int PRICE_PULSE = 100;
 
     public enum UPGRADE_TYPE{
         HEALTH = 0,

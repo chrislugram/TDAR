@@ -41,6 +41,11 @@ public class GameManager {
 		}
 	}
 
+    public bool IsPaused
+    {
+        get { return pauseFlag; }
+    }
+
 	public GameObject Character{
 		get{ return characterGO; }
         set{ characterGO = value; }
@@ -121,7 +126,8 @@ public class GameManager {
 
     public void AddPlasma(int plasma)
     {
-        currentGameStats.plasma += plasma;
+        System.TimeSpan timeSpan = System.TimeSpan.FromMilliseconds ((double)currentGameStats.timeGame);
+        currentGameStats.plasma += plasma * (timeSpan.Minutes+1);
     }
 
 	public void Pause(){
@@ -152,6 +158,7 @@ public class GameManager {
 
             onEndGame();
 
+            AudioManager.Instance.StopFXSound(AudioManager.MOVE_TOWER);
 			RootApp.Instance.ChangeState (StateReferenceApp.TYPE_STATE.END);
 		}
 	}

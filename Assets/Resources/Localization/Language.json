@@ -11,7 +11,7 @@
 		"upgrade_buttonattackspeed": "Cañones",
 		"upgrade_buttontrap": "Trampa",
 		"upgrade_buttonhealth": "Defensa",
-		"upgrade_buttonback": "Atras",
+		"upgrade_buttonback": "Atrás",
 
 		"game_buttonpulse":"Pulso EPM",
 		"game_buttontrap":"Trampa",
@@ -20,29 +20,41 @@
 		"options_fx":"FX",
 		"options_music":"Música",
 		"options_english":"Inglés",
-		"options_spanish":"Español"
+		"options_spanish":"Español",
+		
+		"endgame_besttime":"Enhorabuena, superaste tu mejor tiempo. ",
+		"endgame_win":"¡Acabaste con todos!",
+		"endgame_fail":"Sobreviviste durante ",
+		"endgame_back": "Atrás",
+		"endgame_retry": "Reintentar"
     },
 	"en":{
-		"mainmenu_buttonplay": "Jugar",
-		"mainmenu_buttonupgrades": "Mejoras",
-		"mainmenu_buttonoptions": "Opciones",
+		"mainmenu_buttonplay": "Play",
+		"mainmenu_buttonupgrades": "Upgrades",
+		"mainmenu_buttonoptions": "Options",
 		"mainmenu_buttonranking": "Ranking",
-		"mainmenu_buttonplayar": "Jugar en AR",
+		"mainmenu_buttonplayar": "AR Play",
 		
-		"upgrade_buttonpulse": "Pulso EPM",
-		"upgrade_buttonexplosivebullet": "Granada",
-		"upgrade_buttonattackspeed": "Cañones",
-		"upgrade_buttontrap": "Trampa",
-		"upgrade_buttonhealth": "Defensa",
-		"upgrade_buttonback": "Atras",
+		"upgrade_buttonpulse": " Pulse EPM",
+		"upgrade_buttonexplosivebullet": "Grenade",
+		"upgrade_buttonattackspeed": "Cannons",
+		"upgrade_buttontrap": "Trap",
+		"upgrade_buttonhealth": "Defense",
+		"upgrade_buttonback": "Back",
 
-		"game_buttonpulse":"Pulso EPM",
-		"game_buttontrap":"Trampa",
-		"game_buttonexplosivebullet":"Granada",
+		"game_buttonpulse":"Pulse EPM",
+		"game_buttontrap":"Trap",
+		"game_buttonexplosivebullet":"Grenade",
 
 		"options_fx":"FX",
 		"options_music":"Music",
 		"options_english":"English",
-		"options_spanish":"Spanish"
+		"options_spanish":"Spanish",
+		
+		"endgame_besttime":"Congratulations, achieved a new best time. ",
+		"endgame_win":"You have killed all of them!",
+		"endgame_fail":"You have survived for ",
+		"endgame_back": "Back",
+		"endgame_retry": "Retry"
 	}
 }
