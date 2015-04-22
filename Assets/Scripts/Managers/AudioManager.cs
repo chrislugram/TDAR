@@ -15,6 +15,11 @@ public class AudioManager
 
     //GenericAudios
     public static readonly string BUTTON = "FXsounds/UI/Button01";
+    public static readonly string SHOOT = "FXsounds/FX/Shoot";
+    public static readonly string EXPLOTION = "FXsounds/FX/Explosion";
+    public static readonly string FIRE = "FXsounds/FX/Fire";
+    public static readonly string MOVE_TOWER = "FXsounds/ArmoredTower/SmallElectricalMotor_3";
+    public static readonly string DEATH_ENEMY = "FXsounds/FX/Muerte_enemigo";
 
     #endregion
 
@@ -143,15 +148,41 @@ public class AudioManager
         PlayerPrefs.SetFloat(AppPlayerPrefKeys.KEY_USER_SFX_VOLUME, volume);
     }
 
-    public void PlayMusic(string name, bool loop = false)
+    public void PlayMusic(string name, bool loop = false, float specificVolume = 1)
     {
 
-        Play(name, cacheMusic, AudioManager.Instance.MusicVolume * MULTIPLAY_MUSIC_VOLUME, loop);
+        Play(name, cacheMusic, AudioManager.Instance.MusicVolume * MULTIPLAY_MUSIC_VOLUME * specificVolume, loop);
     }
 
-    public void PlayFXSound(string name, bool loop = false)
+    public void PlayFXSound(string name, bool loop = false, float specificVolume = 1, bool once = false)
     {
-        Play(name, cacheFXSounds, AudioManager.Instance.SFXVolume, loop);
+        if (once)
+        {
+            for (int i = 0; i < cacheFXSounds.Count; i++)
+            {
+                if (cacheFXSounds[i].AudioClipResource == name)
+                {
+                    if (!cacheFXSounds[i].IsPlaying)
+                    {
+                        cacheFXSounds[i].Play(AudioManager.Instance.SFXVolume * specificVolume);
+                    }
+                    return;
+                }
+            }
+        }
+
+        Play(name, cacheFXSounds, AudioManager.Instance.SFXVolume * specificVolume, loop);
+    }
+
+    public void StopFXSound(string name)
+    {
+        foreach (AudioSample entry in cacheFXSounds)
+        {
+            if (entry.AudioClipResource == name)
+            {
+                entry.Stop();
+            }
+        }
     }
 
     public void StopMusic(string name)
@@ -179,39 +210,22 @@ public class AudioManager
         audioSampleLoaded.Clear();
     }
 
+    public AudioClip GetAudioClip(string name)
+    {
+        //Debug.Log("Pido audio..." + name);
+        if (!audioSampleLoaded.ContainsKey(name))
+        {
+            //Debug.Log("Cargo audio..." + name);
+            AudioClip audioClip = Resources.Load<AudioClip>(name);
+            audioSampleLoaded.Add(name, audioClip);
+            //Debug.Log("Termino de cargar audio..." + name);
+        }
+
+        return audioSampleLoaded[name];
+    }
+
     private void Play(string name, List<AudioSample> cache, float volume, bool loop = false)
     {
-        //BORRADO DE CACHES
-        foreach (AudioSample entry in cache)
-        {
-            if (entry == null)
-            {
-                cache.Remove(entry);
-                return;
-            }
-        }
-
-
-        foreach (AudioSample entry in cacheMusic)
-        {
-            if (entry == null)
-            {
-                cacheMusic.Remove(entry);
-                return;
-            }
-        }
-
-
-        foreach (AudioSample entry in cacheFXSounds)
-        {
-            if (entry == null)
-            {
-                cacheFXSounds.Remove(entry);
-                return;
-            }
-        }
-
-        //FIN BORRADO DE CACHES
         bool found = false;
         for (int i = 0; i < cache.Count && !found; i++)
         {
@@ -240,17 +254,6 @@ public class AudioManager
         audioSample.Configure(audioClip, volume, loop, name);
 
         cache.Add(audioSample);
-    }
-
-    private AudioClip GetAudioClip(string name)
-    {
-        if (!audioSampleLoaded.ContainsKey(name))
-        {
-            AudioClip audioClip = Resources.Load<AudioClip>(name);
-            audioSampleLoaded.Add(name, audioClip);
-        }
-
-        return audioSampleLoaded[name];
     }
     #endregion
 }

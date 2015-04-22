@@ -23,7 +23,6 @@ public class ArmoredTowerWeapon : Spawner
     {
         if (granadeWeapon)
         {
-            Debug.Log("Granadas activadas");
             currentTimeGranade += Time.deltaTime;
             if (currentTimeGranade > timeGranade)
             {
@@ -72,6 +71,10 @@ public class ArmoredTowerWeapon : Spawner
             spawnElementInstance = spawnElements.Dequeue();
             if (spawnElementInstance != null && spawnPointSelected != null)
             {
+                spawnElementInstance.transform.position = spawnPointSelected.position;
+                spawnElementInstance.transform.rotation = Quaternion.identity;
+                spawnElementInstance.SetActive(true);
+
                 if (!granadeWeapon)
                 {
                     spawnElementInstance.GetComponent<Bullet>().InitNormal();
@@ -80,9 +83,6 @@ public class ArmoredTowerWeapon : Spawner
                 {
                     spawnElementInstance.GetComponent<Bullet>().InitGranade();
                 }
-                spawnElementInstance.transform.position = spawnPointSelected.position;
-                spawnElementInstance.transform.rotation = Quaternion.identity;
-                spawnElementInstance.SetActive(true);
             }
         }
 

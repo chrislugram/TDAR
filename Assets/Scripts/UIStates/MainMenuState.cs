@@ -31,6 +31,7 @@ public class MainMenuState : StateApp {
         GameManager.Instance.SetGame(newGame);
         AudioManager.Instance.StopMusic(AudioManager.MUSIC_MAIN_MENU);
         AudioManager.Instance.PlayFXSound(AudioManager.BUTTON);
+        AudioManager.Instance.Clear();
 		rootApp.ChangeState (StateReferenceApp.TYPE_STATE.GAME, AppScenes.SCENE_GAME);
 	}
 

@@ -8,12 +8,8 @@ public class TrapController : MonoBehaviour {
 
     #region FIELDS
     public float radiusAttack = 4;
-    public float angleVisibility = 45;
-    public ParticleSystem activePS;
+    public ParticleSystem explosionPS;
     public GameObject markGO;
-    public Transform transformCharacter;
-    
-    private bool trapVisible = false;
     #endregion
 
     #region ACCESSORS
@@ -23,32 +19,6 @@ public class TrapController : MonoBehaviour {
     void Start()
     {
         GameState.onTrapActivate += Attack;
-
-        activePS.Stop();
-        markGO.SetActive(false);
-        trapVisible = false;
-    }
-
-    void Update()
-    {
-        Vector3 direction = transformCharacter.position - this.transform.position;
-
-        bool newVisibility = (180 - angleVisibility) <= Vector3.Angle(direction, transformCharacter.forward);
-
-        if (newVisibility != trapVisible)
-        {
-            trapVisible = newVisibility;
-            markGO.SetActive(trapVisible);
-            if (trapVisible)
-            {
-                activePS.Play();
-            }
-            else
-            {
-                activePS.Stop();
-            }
-            
-        }
     }
 
     void OnDestroy() 
@@ -60,6 +30,8 @@ public class TrapController : MonoBehaviour {
     #region METHODS_CUSTOM
     public void Attack()
     {
+        explosionPS.Play();
+
         List<GameObject> currentListElementDetected = new List<GameObject>();
         Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, radiusAttack);
 

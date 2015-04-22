@@ -14,6 +14,7 @@ public class ArmoredTowerController : MonoBehaviour {
     public ArmoredTowerGraphicsConf graphicConf;
 
     public ParticleSystem pulsePS;
+    public ParticleSystem deathPS;
     public float radiusPulse = 25;
 
     private ArmoredTowerMovement movement;
@@ -129,8 +130,10 @@ public class ArmoredTowerController : MonoBehaviour {
 
     private void Death()
     {
+        deathPS.Play();
+        AudioManager.Instance.PlayFXSound(AudioManager.EXPLOTION, false);
+        AudioManager.Instance.PlayFXSound(AudioManager.FIRE, true);
         GameManager.Instance.GameFail();
-        Destroy(this.gameObject);
     }
     #endregion
 }

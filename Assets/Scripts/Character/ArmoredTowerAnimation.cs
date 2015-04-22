@@ -18,7 +18,14 @@ public class ArmoredTowerAnimation : MonoBehaviour {
     public bool Shooting
     {
         set {
-            animator.SetBool(PARAM_SHOOTING, value);
+            if (!GameManager.Instance.FinishedGame)
+            {
+                animator.SetBool(PARAM_SHOOTING, value);
+            }
+            else
+            {
+                animator.SetBool(PARAM_SHOOTING, false);
+            }
         }
     }
     #endregion

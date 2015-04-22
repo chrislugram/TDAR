@@ -9,6 +9,7 @@ public class GameStats {
     #region FIELDS
     public int timeGame;
     public int totalEnemyDestroyed;
+    public int plasma;
     #endregion
 
     #region ACCESSORS
@@ -19,6 +20,7 @@ public class GameStats {
     {
         timeGame = 0;
         totalEnemyDestroyed = 0;
+        plasma = 0;
     }
     #endregion
 

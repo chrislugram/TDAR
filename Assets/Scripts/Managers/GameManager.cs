@@ -15,6 +15,8 @@ public class GameManager {
 	#endregion
 	
 	#region FIELDS
+    public event Action onEndGame = delegate { };
+
 	private Game			    currentGame;
 	private GameStats		    currentGameStats;
 	private GameObject		    characterGO;
@@ -62,9 +64,19 @@ public class GameManager {
         }
 	}
 
+    public int Plasma
+    {
+        get { return currentGameStats.plasma; }
+    }
+
 	public bool	WinGame{
 		get { return winFlag; }
 	}
+
+    public bool FinishedGame
+    {
+        get { return finishGameFlag; }
+    }
 
     public static GameManager Instance{
         get{
@@ -105,11 +117,12 @@ public class GameManager {
 	public void EnemyDestroyed(){
 		currentGameStats.totalEnemyDestroyed++;
         Debug.Log("Total enemigos destruidos: " + currentGameStats.totalEnemyDestroyed + ", tiempo: " + ((float)currentGameStats.timeGame / 1000));
-
-		/*if (currentGameStats.totalEnemyDestroyed == currentGame.totalEnemies) {
-			GameWin();
-		}*/
 	}
+
+    public void AddPlasma(int plasma)
+    {
+        currentGameStats.plasma += plasma;
+    }
 
 	public void Pause(){
 		if (pauseFlag) {
@@ -125,6 +138,7 @@ public class GameManager {
 		Debug.Log("Gana el jugador");
 		winFlag = true;
 		timeTask.Stop ();
+        finishGameFlag = true;
 
 		RootApp.Instance.ChangeState (StateReferenceApp.TYPE_STATE.END);
 	}
@@ -134,7 +148,10 @@ public class GameManager {
 			Debug.Log("Pierde el jugador");
 			winFlag = false;
 			timeTask.Stop ();
-			
+            finishGameFlag = true;
+
+            onEndGame();
+
 			RootApp.Instance.ChangeState (StateReferenceApp.TYPE_STATE.END);
 		}
 	}

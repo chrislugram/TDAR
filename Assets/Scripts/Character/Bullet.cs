@@ -8,6 +8,9 @@ public class Bullet : SpawnElement {
 	
 	#region FIELDS
     public float radiusGranade = 10;
+    public ParticleSystem normalPS;
+    public ParticleSystem explosionPS;
+    public ParticleSystem finishExplosionPS;
 
     private bool isGranade = false;
 	#endregion
@@ -24,6 +27,7 @@ public class Bullet : SpawnElement {
 	#region METHODS_UNITY
 	void Awake(){
 		bulletRigidbody = this.GetComponent<Rigidbody> ();
+        finishExplosionPS.transform.parent = null;
 	}
 
 	void Update(){
@@ -37,6 +41,8 @@ public class Bullet : SpawnElement {
 	void OnCollisionEnter(Collision collision) {
         if (isGranade)
         {
+            finishExplosionPS.transform.position = this.transform.position;
+            finishExplosionPS.Play();
             Explode();
         }
         else
@@ -46,6 +52,9 @@ public class Bullet : SpawnElement {
 		    }
         }
 
+        normalPS.Stop();
+        explosionPS.Stop();
+
 		Desactive ();
 	}
 	#endregion
@@ -54,11 +63,13 @@ public class Bullet : SpawnElement {
     public void InitNormal()
     {
         isGranade = false;
+        normalPS.Play();
     }
 
     public void InitGranade()
     {
         isGranade = true;
+        explosionPS.Play();
     }
 
     public void Explode()
@@ -75,6 +86,8 @@ public class Bullet : SpawnElement {
     }
 
 	public override void Initialized (Spawner spawner){
+        AudioManager.Instance.PlayFXSound(AudioManager.SHOOT, false, 0.1f);
+
 		base.Initialized (spawner);
 
 		bulletRigidbody.velocity = this.transform.forward * bulletSpeed;

@@ -28,6 +28,11 @@ public class StageController : MonoBehaviour
     #endregion
 
     #region METHODS_UNITY
+    void Start()
+    {
+        GameManager.Instance.onEndGame += EndStage;
+    }
+
     void Update()
     {
         if (generating)
@@ -45,6 +50,11 @@ public class StageController : MonoBehaviour
                 }
             }
         }
+    }
+
+    void OnDestroy()
+    {
+        GameManager.Instance.onEndGame -= EndStage;
     }
 
     void OnDrawGizmos()
@@ -80,6 +90,11 @@ public class StageController : MonoBehaviour
         float fRandom = UnityEngine.Random.Range(0, 90);
         Vector3 vPos = new Vector3(Mathf.Cos(fRandom) * rangePointGeneration, 0, Mathf.Sin(fRandom) * rangePointGeneration);
         enemyInfoSelected.GenerateEnemy(vPos, increasePercWithGeneration, maxPercGenerateEnemy);
+    }
+
+    private void EndStage()
+    {
+        generating = false;
     }
     #endregion
 

@@ -3,15 +3,21 @@ using System.Collections;
 
 public class EnemyController : MonoBehaviour {
     #region STATIC_ENUM_CONSTANTS
+    public static readonly string PARAM_DEATH = "Death";
+    public static readonly string PARAM_END_GAME = "EndGame";
     #endregion
 
     #region FIELDS
     public int initHealth = 1;
     public int damage = 40;
+    public int plasma = 2;
 
-    private NavMeshAgent navMesh;
-    public int currentHealth = 0;
-    private StageEnemyInfo stageEnemyInfoRef;
+    public Animator animatorEnemy;
+
+    protected NavMeshAgent navMesh;
+    protected int currentHealth = 0;
+    protected StageEnemyInfo stageEnemyInfoRef;
+    protected bool endGameFlag = false;
     #endregion
 
     #region ACCESSORS
@@ -25,14 +31,20 @@ public class EnemyController : MonoBehaviour {
     void Start()
     {
         navMesh = GetComponent<NavMeshAgent>();
+        GameManager.Instance.onEndGame += EndGame;
     }
 
     void Update()
     {
-        if (!IsDeath)
+        if (!IsDeath && !endGameFlag)
         {
             MoveEnemy();
         }
+    }
+
+    void OnDestroy()
+    {
+        GameManager.Instance.onEndGame -= EndGame;
     }
     #endregion
 
@@ -45,11 +57,15 @@ public class EnemyController : MonoBehaviour {
 
     public virtual void DamageEnemy()
     {
-        currentHealth--;
-        if (IsDeath)
+        if (!IsDeath)
         {
-            DeathEnemy();
+            currentHealth--;
+            if (IsDeath)
+            {
+                DeathEnemy();
+            }
         }
+
     }
 
     public virtual void CollisionWithCharacter()
@@ -65,8 +81,23 @@ public class EnemyController : MonoBehaviour {
     protected virtual void DeathEnemy()
     {
         GameManager.Instance.EnemyDestroyed();
+        GameManager.Instance.AddPlasma(plasma);
         stageEnemyInfoRef.AddToCache(this.gameObject);
-        this.gameObject.SetActive(false);
+
+        AudioManager.Instance.PlayFXSound(AudioManager.DEATH_ENEMY, false, 0.5f);
+
+        animatorEnemy.SetTrigger(PARAM_DEATH);
+        animatorEnemy.GetComponent<EventAnimation>().eventAnimationAction = () =>
+        {
+            this.gameObject.SetActive(false);
+        };
+    }
+
+    protected virtual void EndGame()
+    {
+        endGameFlag = true;
+        navMesh.SetDestination(this.transform.position);
+        animatorEnemy.SetBool(PARAM_END_GAME, true);
     }
     #endregion
 

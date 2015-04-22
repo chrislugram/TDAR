@@ -27,21 +27,33 @@ public class ArmoredTowerMovement : MonoBehaviour {
     {
         InputGame.onMoveToLeft += MoveToLeft;
         InputGame.onMoveToRight += MoveToRight;
+        InputGame.onNothing += Nothing;
     }
 
     void Update()
     {
         //Rotation X
-        Quaternion newRotation = Quaternion.identity;
-
-        if (transformTarget != null)
+        if (!GameManager.Instance.FinishedGame)
         {
-            Vector3 relativePosition = transformTarget.position - transformXRotation.position;
-            newRotation = Quaternion.LookRotation(relativePosition);
-            newRotation = Quaternion.Euler(new Vector3(newRotation.eulerAngles.x+offsetXRotation, 0, 0));
-        }
+            Quaternion newRotation = Quaternion.identity;
 
-        transformXRotation.localRotation = Quaternion.Lerp(transformXRotation.localRotation, newRotation, Time.deltaTime * speedRotationX);
+            if (transformTarget != null && transformTarget.gameObject.activeSelf)
+            {
+                Vector3 relativePosition = transformTarget.position - transformXRotation.position;
+                newRotation = Quaternion.LookRotation(relativePosition);
+                newRotation = Quaternion.Euler(new Vector3(newRotation.eulerAngles.x + offsetXRotation, 0, 0));
+            }
+
+            transformXRotation.localRotation = Quaternion.Lerp(transformXRotation.localRotation, newRotation, Time.deltaTime * speedRotationX);
+        }
+       
+    }
+
+    void OnDestroy()
+    {
+        InputGame.onMoveToLeft -= MoveToLeft;
+        InputGame.onMoveToRight -= MoveToRight;
+        InputGame.onNothing -= Nothing;
     }
     #endregion
 
@@ -51,7 +63,11 @@ public class ArmoredTowerMovement : MonoBehaviour {
         if (transformTarget != null && t != null)
         {
             float distance = Vector3.Distance(this.transform.position, t.position);
-            if (distance < Vector3.Distance(this.transform.position, transformTarget.position))
+            if (!transformTarget.gameObject.activeSelf)
+            {
+                transformTarget = t;
+            }
+            else if (distance < Vector3.Distance(this.transform.position, transformTarget.position))
             {
                 transformTarget = t;
             }
@@ -65,14 +81,30 @@ public class ArmoredTowerMovement : MonoBehaviour {
     #endregion
 
     #region EVENTS
+    private void Nothing()
+    {
+        if (!GameManager.Instance.FinishedGame)
+        {
+            AudioManager.Instance.StopFXSound(AudioManager.MOVE_TOWER);
+        }
+    }
+
     private void MoveToLeft()
     {
-        transformYRotation.Rotate(0, -speedRotationY * Time.deltaTime, 0);
+        if (!GameManager.Instance.FinishedGame)
+        {
+            AudioManager.Instance.PlayFXSound(AudioManager.MOVE_TOWER, true, 0.2f, true);
+            transformYRotation.Rotate(0, -speedRotationY * Time.deltaTime, 0);
+        }
     }
 
     private void MoveToRight()
     {
-        transformYRotation.Rotate(0, speedRotationY * Time.deltaTime, 0);
+        if (!GameManager.Instance.FinishedGame)
+        {
+            AudioManager.Instance.PlayFXSound(AudioManager.MOVE_TOWER, true, 0.2f, true);
+            transformYRotation.Rotate(0, speedRotationY * Time.deltaTime, 0);
+        }
     }
     #endregion
 }

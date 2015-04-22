@@ -10,6 +10,7 @@ public class InputGame : MonoBehaviour {
 	#region FIELDS
 	public static event Action	onMoveToRight = delegate {};
 	public static event Action	onMoveToLeft = delegate {};
+    public static event Action onNothing = delegate { };
 	#endregion
 	
 	#region ACCESSORS
@@ -26,14 +27,15 @@ public class InputGame : MonoBehaviour {
 		//Detect rotation in Speederbike
 		if (Input.GetKey (KeyCode.A)) {
 			onMoveToLeft ();
-		} else if (Input.GetKey (KeyCode.D)) {
+		} 
+        else if (Input.GetKey (KeyCode.D)) 
+        {
 			onMoveToRight();
-		}
-
-		//HACK:Detect init run of Speederbike
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			//GameManager.StartGame();
-		}
+        }
+        else
+        {
+            onNothing();
+        }
 	}
 	#endregion
 	

@@ -33,12 +33,15 @@ public class GameState : StateApp {
     void Update()
     {
         time.text = Util.MilisecondsInClockFormat(GameManager.Instance.TimeGame);
+        countPlasma.text = GameManager.Instance.Plasma.ToString();
     }
 	#endregion
 	
 	#region METHODS_CUSTOM
 	public override void Activate (){
 		base.Activate ();
+
+        AudioManager.Instance.PlayMusic(AudioManager.MUSIC_GAME, true);
 
         stageController.StartStage();
 
@@ -47,6 +50,12 @@ public class GameState : StateApp {
 
         UpdateUI();
 	}
+
+    public override void Desactivate()
+    {
+        AudioManager.Instance.Clear();
+        base.Desactivate();
+    }
 
     public void UpdateUI()
     {
