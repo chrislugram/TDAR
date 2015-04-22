@@ -12,7 +12,6 @@ using System.Collections;
 /* **************************************************************************
  * CLASS: FPS COUNTER
  * *************************************************************************/
-[RequireComponent(typeof(GUIText))]
 public class FPSCounter : MonoBehaviour
 {
     /* Public Variables */

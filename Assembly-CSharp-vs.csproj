@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{9B9F048B-1602-1AFC-2558-CCF82C4F7FCE}</ProjectGuid>
+	<ProjectGuid>{F4D8B33C-5F0D-7F99-2472-4E5F7E51FB0D}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -90,6 +90,7 @@
      <Compile Include="Assets\Scripts\Character\ArmoredTowerWeapon.cs" />
      <Compile Include="Assets\Scripts\Character\Bullet.cs" />
      <Compile Include="Assets\Scripts\Character\TrapController.cs" />
+     <Compile Include="Assets\Scripts\Enemies\DronBlade.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyController.cs" />
      <Compile Include="Assets\Scripts\Game\Game.cs" />
      <Compile Include="Assets\Scripts\Game\GameStats.cs" />
@@ -140,7 +141,9 @@
      <Compile Include="Assets\Scripts\Utils\Spawner\Spawner.cs" />
      <Compile Include="Assets\Scripts\Utils\TaskManager\CoroutineTask.cs" />
      <Compile Include="Assets\Scripts\Utils\TaskManager\TaskManager.cs" />
+     <Compile Include="Assets\Scripts\Utils\UtilClass\FPSCounter.cs" />
      <Compile Include="Assets\Scripts\Utils\UtilClass\Util.cs" />
+     <None Include="Assets\Resources\Shaders\OnTop.shader" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\link.xml" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\VertexLitWithZ.shader" />
@@ -160,7 +163,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Qualcomm.Vuforia.UnityExtensions">
- <HintPath>C:/Users/Christian/Documents/GitHub/TowerDefendsAR/Assets/Qualcomm Augmented Reality/Scripts/Internal/Qualcomm.Vuforia.UnityExtensions.dll</HintPath>
+ <HintPath>C:/Users/Christian/Documents/GitHub/TDAR/Assets/Qualcomm Augmented Reality/Scripts/Internal/Qualcomm.Vuforia.UnityExtensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
