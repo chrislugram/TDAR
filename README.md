@@ -1,4 +1,4 @@
-# TDAR
+# Last Sentinel
 
 ## Game Description
 You are the last survivor in the Space Station. A plague of alien droids have taken the station, but you have a Sentinel. 
