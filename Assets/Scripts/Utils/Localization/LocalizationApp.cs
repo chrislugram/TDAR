@@ -23,10 +23,10 @@ public static class LocalizationApp {
 	
 	#region FIELDS
 	public static event Action	onChangeLanguage = delegate{};
-	public static LANGUAGE		languageApp = LANGUAGE.SPANISH;
+	public static LANGUAGE		languageApp = LANGUAGE.ENGLISH;
 	
 	private static JSONObject	jsonLanguageApp;
-	private static string 		locationAppTag = SPANISH_TAG;
+	private static string 		locationAppTag = ENGLISH_TAG;
 	#endregion
 	
 	#region ACCESSORS

@@ -71,7 +71,17 @@ public class GameManager {
 
     public int Plasma
     {
-        get { return currentGameStats.plasma; }
+        get
+        {
+            if (currentGameStats == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return currentGameStats.plasma;
+            }
+        }
     }
 
 	public bool	WinGame{
@@ -121,7 +131,7 @@ public class GameManager {
 
 	public void EnemyDestroyed(){
 		currentGameStats.totalEnemyDestroyed++;
-        Debug.Log("Total enemigos destruidos: " + currentGameStats.totalEnemyDestroyed + ", tiempo: " + ((float)currentGameStats.timeGame / 1000));
+        //Debug.Log("Total enemigos destruidos: " + currentGameStats.totalEnemyDestroyed + ", tiempo: " + ((float)currentGameStats.timeGame / 1000));
 	}
 
     public void AddPlasma(int plasma)

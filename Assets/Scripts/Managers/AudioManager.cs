@@ -21,7 +21,6 @@ public class AudioManager
     public static readonly string FIRE = "FXsounds/FX/Fire";
     public static readonly string MOVE_TOWER = "FXsounds/ArmoredTower/SmallElectricalMotor_3";
     public static readonly string DEATH_ENEMY = "FXsounds/FX/Muerte_enemigo";
-
     #endregion
 
     #region FIELDS

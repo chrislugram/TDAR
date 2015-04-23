@@ -56,6 +56,7 @@ public class EndState : StateApp {
 
 	public void OnBackButtonAction(){
         AudioManager.Instance.PlayFXSound(AudioManager.BUTTON);
+        AudioManager.Instance.Clear();
 		rootApp.ChangeState (StateReferenceApp.TYPE_STATE.MAIN_MENU, AppScenes.SCENE_MAIN_MENU);
 	}
 	#endregion

@@ -10,6 +10,7 @@ public class UserConfiguration
     public int speedArmoredTower;
 
     public int bestTime;
+    public int tutorial;
     
     public int totalExplosiveBullet;
     public int totalTraps;

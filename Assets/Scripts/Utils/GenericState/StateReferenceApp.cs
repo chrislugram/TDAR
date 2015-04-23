@@ -9,6 +9,7 @@ public class StateReferenceApp {
 	public static readonly string	END							= "EndState";
     public static readonly string   UPGRADE                     = "UpgradeState";
     public static readonly string   OPTIONS                     = "OptionsState";
+    public static readonly string   TUTORIAL                    = "TutorialState";
 
 	public static readonly string	POPUP_ALERT					= "PopupErrorState";
 	
@@ -18,7 +19,8 @@ public class StateReferenceApp {
 		INIT_MENU					= 2,
 		END							= 3,
         UPGRADE                     = 4,
-        OPTIONS                     = 5
+        OPTIONS                     = 5,
+        TUTORIAL                    = 6
 	}
 
 	public enum POPUP_TYPE_STATE{

@@ -32,7 +32,15 @@ public class MainMenuState : StateApp {
         AudioManager.Instance.StopMusic(AudioManager.MUSIC_MAIN_MENU);
         AudioManager.Instance.PlayFXSound(AudioManager.BUTTON);
         AudioManager.Instance.Clear();
-		rootApp.ChangeState (StateReferenceApp.TYPE_STATE.GAME, AppScenes.SCENE_GAME);
+
+        if (UserManager.Instance.UserConfiguration.tutorial == 0)
+        {
+            rootApp.ChangeState(StateReferenceApp.TYPE_STATE.TUTORIAL, AppScenes.SCENE_GAME);
+        }
+        else
+        {
+            rootApp.ChangeState(StateReferenceApp.TYPE_STATE.GAME, AppScenes.SCENE_GAME);
+        }
 	}
 
     public void OnUpgradeButtonAction()

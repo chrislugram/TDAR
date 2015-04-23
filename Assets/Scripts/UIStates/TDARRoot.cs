@@ -33,8 +33,9 @@ public class TDARRoot : RootApp {
 		states.Add (StateReferenceApp.TYPE_STATE.MAIN_MENU, StateReferenceApp.MAIN_MENU);
 		states.Add (StateReferenceApp.TYPE_STATE.GAME, StateReferenceApp.GAME);
 		states.Add (StateReferenceApp.TYPE_STATE.END, StateReferenceApp.END);
-        states.Add(StateReferenceApp.TYPE_STATE.UPGRADE, StateReferenceApp.UPGRADE);
-        states.Add(StateReferenceApp.TYPE_STATE.OPTIONS, StateReferenceApp.OPTIONS);
+        states.Add (StateReferenceApp.TYPE_STATE.UPGRADE, StateReferenceApp.UPGRADE);
+        states.Add (StateReferenceApp.TYPE_STATE.OPTIONS, StateReferenceApp.OPTIONS);
+        states.Add (StateReferenceApp.TYPE_STATE.TUTORIAL, StateReferenceApp.TUTORIAL);
 		
 		//Añadimos los popup
 		//popupStates.Add (StateReferenceApp.POPUP_TYPE_STATE.POPUP_ALERT, StateReferenceApp.POPUP_ALERT);

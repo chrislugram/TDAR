@@ -2,9 +2,10 @@
 <UserConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <lifeArmoredTower>0</lifeArmoredTower>
   <speedArmoredTower>0</speedArmoredTower>
-  <bestTime>2147483647</bestTime>
+  <bestTime>0</bestTime>
+  <tutorial>0</tutorial>
   <totalExplosiveBullet>0</totalExplosiveBullet>
   <totalTraps>0</totalTraps>
   <totalPulses>0</totalPulses>
-  <totalPlasma>500</totalPlasma>
+  <totalPlasma>90</totalPlasma>
 </UserConfiguration>
