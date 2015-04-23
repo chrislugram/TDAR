@@ -9,6 +9,8 @@ public class OptionsState : StateApp {
     #region FIELDS
     public Slider musicSlider;
     public Slider fxSlider;
+    public Toggle toggleEnglish;
+    public Toggle toggleSpanish;
     #endregion
 
     #region ACCESSORS
@@ -24,6 +26,19 @@ public class OptionsState : StateApp {
         
         musicSlider.value = AudioManager.Instance.MusicVolume;
         fxSlider.value = AudioManager.Instance.SFXVolume;
+
+        if (LocalizationApp.languageApp == LocalizationApp.LANGUAGE.ENGLISH)
+        {
+            Debug.Log("Idioma seleccionado ingles");
+            toggleSpanish.isOn = false;
+            toggleEnglish.isOn = true;
+        }
+        else if (LocalizationApp.languageApp == LocalizationApp.LANGUAGE.SPANISH)
+        {
+            Debug.Log("Idioma seleccionado español");
+            toggleSpanish.isOn = true;
+            toggleEnglish.isOn = false;
+        }
     }
     #endregion
 

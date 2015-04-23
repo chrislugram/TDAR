@@ -3,13 +3,33 @@ using System.Collections;
 
 public class EscapeQuit : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    #region STATIC_ENUM_CONSTANTS
+    #endregion
+
+    #region FIELDS
+    #endregion
+
+    #region ACCESSORS
+    #endregion
+
+    #region METHODS_UNITY
+    void Start()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+    #endregion
+
+    #region METHODS_CUSTOM
+    #endregion
+
+    #region EVENTS
+    #endregion
 }
