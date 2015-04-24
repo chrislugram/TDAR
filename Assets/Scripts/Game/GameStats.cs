@@ -10,6 +10,8 @@ public class GameStats {
     public int timeGame;
     public int totalEnemyDestroyed;
     public int plasma;
+    public int totalSpiderKilled;
+    public int totalWaspKilled;
     #endregion
 
     #region ACCESSORS
@@ -21,6 +23,8 @@ public class GameStats {
         timeGame = 0;
         totalEnemyDestroyed = 0;
         plasma = 0;
+        totalSpiderKilled = 0;
+        totalWaspKilled = 0;
     }
     #endregion
 

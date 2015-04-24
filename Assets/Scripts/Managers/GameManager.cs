@@ -84,6 +84,16 @@ public class GameManager {
         }
     }
 
+    public int TotalSpiderKilled
+    {
+        get { return currentGameStats.totalSpiderKilled; }
+    }
+
+    public int TotalWaspKilled
+    {
+        get { return currentGameStats.totalWaspKilled; }
+    }
+
 	public bool	WinGame{
 		get { return winFlag; }
 	}
@@ -129,9 +139,17 @@ public class GameManager {
 		currentGameStats = new GameStats ();
 	}
 
-	public void EnemyDestroyed(){
+	public void EnemyDestroyed(EnemyController.ENEMY_TYPE enemyType){
 		currentGameStats.totalEnemyDestroyed++;
-        //Debug.Log("Total enemigos destruidos: " + currentGameStats.totalEnemyDestroyed + ", tiempo: " + ((float)currentGameStats.timeGame / 1000));
+
+        if (enemyType == EnemyController.ENEMY_TYPE.SPIDER)
+        {
+            currentGameStats.totalSpiderKilled++;
+        }
+        else
+        {
+            currentGameStats.totalWaspKilled++;
+        }
 	}
 
     public void AddPlasma(int plasma)

@@ -8,4 +8,6 @@
   <totalTraps>1</totalTraps>
   <totalPulses>1</totalPulses>
   <totalPlasma>90</totalPlasma>
+  <totalSpiderKilled>0</totalSpiderKilled>
+  <totalWaspKilled>0</totalWaspKilled>
 </UserConfiguration>
