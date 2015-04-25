@@ -62,11 +62,50 @@ public class UpgradeState : StateApp
         costLife.text = (PRICE_EXTRA_LIFE * (UserManager.Instance.UserConfiguration.lifeArmoredTower+1)).ToString();
         costSpeed.text = (PRICE_EXTRA_SPEED * (UserManager.Instance.UserConfiguration.speedArmoredTower+1)).ToString();
 
-        totalTrap.text = UserManager.Instance.UserConfiguration.totalTraps.ToString();
-        totalPulse.text = UserManager.Instance.UserConfiguration.totalPulses.ToString();
-        totalExplosiveBullet.text = UserManager.Instance.UserConfiguration.totalExplosiveBullet.ToString();
-        totalLife.text = ((UserManager.Instance.UserConfiguration.lifeArmoredTower + 1) * 100).ToString();
-        totalSpeed.text = (UserManager.Instance.UserConfiguration.speedArmoredTower + 1).ToString();
+        if (UserManager.Instance.UserConfiguration.totalTraps < 99)
+        {
+            totalTrap.text = UserManager.Instance.UserConfiguration.totalTraps.ToString();
+        }
+        else
+        {
+            totalTrap.text = "MAX";
+        }
+
+        if (UserManager.Instance.UserConfiguration.totalPulses < 99)
+        {
+            totalPulse.text = UserManager.Instance.UserConfiguration.totalPulses.ToString();
+        }
+        else
+        {
+            totalPulse.text = "MAX";
+        }
+
+        if (UserManager.Instance.UserConfiguration.totalExplosiveBullet < 99)
+        {
+            totalExplosiveBullet.text = UserManager.Instance.UserConfiguration.totalExplosiveBullet.ToString();
+        }
+        else
+        {
+            totalExplosiveBullet.text = "MAX";
+        }
+
+        if (UserManager.Instance.UserConfiguration.lifeArmoredTower < 3)
+        {
+            totalLife.text = ((UserManager.Instance.UserConfiguration.lifeArmoredTower + 1) * 100).ToString();
+        }
+        else
+        {
+            totalLife.text = "MAX";
+        }
+
+        if (UserManager.Instance.UserConfiguration.speedArmoredTower < 2)
+        {
+            totalSpeed.text = (UserManager.Instance.UserConfiguration.speedArmoredTower + 1).ToString();
+        }
+        else
+        {
+            totalSpeed.text = "MAX";
+        }
     }
 
     private void BuyTrap()
@@ -83,7 +122,7 @@ public class UpgradeState : StateApp
     {
         int limitPlasma = PRICE_EXTRA_SPEED * (UserManager.Instance.UserConfiguration.speedArmoredTower + 1);
 
-        if (UserManager.Instance.UserConfiguration.speedArmoredTower < 3 &&
+        if (UserManager.Instance.UserConfiguration.speedArmoredTower < 2 &&
            UserManager.Instance.UserConfiguration.totalPlasma >= limitPlasma)
         {
             UserManager.Instance.UserConfiguration.speedArmoredTower++;

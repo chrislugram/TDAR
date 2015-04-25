@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using GooglePlayGames;
 using UnityEngine.SocialPlatforms;
+using System;
 
 public class MainMenuState : StateApp {
 	#region STATIC_ENUM_CONSTANTS
@@ -35,7 +36,7 @@ public class MainMenuState : StateApp {
         //If user get inicialized, not ask again
         ((PlayGamesPlatform)Social.Active).Authenticate((bool success) => { }, true);
 
-        if (Social.localUser.authenticated){
+        /*if (Social.localUser.authenticated){
             buttonRanking.SetActive(true);
             buttonAchievements.SetActive(true);
         }else{
@@ -51,7 +52,7 @@ public class MainMenuState : StateApp {
                     buttonAchievements.SetActive(false);
                 }
             });
-        }
+        }*/
 
         AudioManager.Instance.PlayMusic(AudioManager.MUSIC_MAIN_MENU, true);
 	}
@@ -59,6 +60,24 @@ public class MainMenuState : StateApp {
     public override void Desactivate()
     {
         base.Desactivate();
+    }
+
+    private void CheckSocialConnection(Action successAction)
+    {
+        if (Social.localUser.authenticated)
+        {
+            successAction();
+        }
+        else
+        {
+            Social.localUser.Authenticate((bool success) =>
+            {
+                if (success)
+                {
+                    successAction();
+                }
+            });
+        }
     }
 	#endregion
 	
@@ -96,13 +115,21 @@ public class MainMenuState : StateApp {
     public void OnButtonRankingAction()
     {
         AudioManager.Instance.PlayFXSound(AudioManager.BUTTON);
-        ((PlayGamesPlatform)Social.Active).ShowLeaderboardUI(AppGooglePlayIDs.RANKING_ID);
+        CheckSocialConnection(() =>
+        {
+            ((PlayGamesPlatform)Social.Active).ShowLeaderboardUI(AppGooglePlayIDs.RANKING_ID);
+        });
+        
     }
 
     public void OnButtonAchievementAction()
     {
         AudioManager.Instance.PlayFXSound(AudioManager.BUTTON);
-        ((PlayGamesPlatform)Social.Active).ShowAchievementsUI();
+        
+        CheckSocialConnection(() =>
+        {
+            ((PlayGamesPlatform)Social.Active).ShowAchievementsUI();
+        });
     }
 	#endregion
 }

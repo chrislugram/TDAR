@@ -45,6 +45,10 @@ public class EndState : StateApp {
         UserManager.Instance.UserConfiguration.totalWaspKilled += GameManager.Instance.TotalWaspKilled;
 
         UserManager.Instance.UserConfiguration.totalPlasma += GameManager.Instance.Plasma;
+        if (UserManager.Instance.UserConfiguration.totalPlasma > 99999999)
+        {
+            UserManager.Instance.UserConfiguration.totalPlasma = 99999999;
+        }
         UserManager.Instance.SaveUserConfiguration();
 
         //Send to GooglePlay information
