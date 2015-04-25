@@ -22,6 +22,7 @@ public class TDARRoot : RootApp {
 		TaskManager.Init ();
         UserManager.Instance.Init();
         AudioManager.Instance.Init();
+        AdMobManager.Instance.Init();
 		//PlayerPrefs.DeleteAll ();
 			
 		//Inicializamos los estados

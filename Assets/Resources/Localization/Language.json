@@ -4,6 +4,7 @@
 		"mainmenu_buttonupgrades": "Mejoras",
 		"mainmenu_buttonoptions": "Opciones",
 		"mainmenu_buttonranking": "Ranking",
+		"mainmenu_buttonachievements": "Logros",
 		"mainmenu_buttonplayar": "Jugar en AR",
 		
 		"upgrade_buttonpulse": "Pulso EPM",
@@ -28,7 +29,7 @@
 		"endgame_back": "Atrás",
 		"endgame_retry": "Reintentar",
 
-		"tutorial_01": "Toca a izquierda y derecha para apuntar con el Sentinel.
+		"tutorial_01": "Toca a la izquierda y derecha de la pantalla para apuntar con el Sentinel.
 Las armas son limitadas, utilizalas sabiamente.",
 		"tutorial_02": "Evita que los droides dañen al Sentinel. 
 Acaba con ellos y absorbe su energía, mientras más tiempo aguantes más absorberás.",
@@ -39,6 +40,7 @@ Acaba con ellos y absorbe su energía, mientras más tiempo aguantes más absorb
 		"mainmenu_buttonupgrades": "Upgrades",
 		"mainmenu_buttonoptions": "Options",
 		"mainmenu_buttonranking": "Ranking",
+		"mainmenu_buttonachievements": "Achievements",
 		"mainmenu_buttonplayar": "AR Play",
 		
 		"upgrade_buttonpulse": " Pulse EPM",
@@ -63,7 +65,7 @@ Acaba con ellos y absorbe su energía, mientras más tiempo aguantes más absorb
 		"endgame_back": "Back",
 		"endgame_retry": "Retry",
 
-		"tutorial_01": "Tap left and right to point with the Sentinel. 
+		"tutorial_01": "Touch left and right of the screen to point with the Sentinel. 
 The weapons are limited, use them wisely.",
 		"tutorial_02": "Prevent the droid damages to the Sentinel. 
 Finish with all of them and take their energy, while more time you survive more energy taken.",

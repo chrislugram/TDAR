@@ -17,4 +17,7 @@ public class UserConfiguration
     public int totalPulses;
 
     public int totalPlasma;
+
+    public int totalSpiderKilled;
+    public int totalWaspKilled;
 }

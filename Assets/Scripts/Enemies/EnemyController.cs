@@ -4,6 +4,11 @@ using System.Collections;
 public class EnemyController : MonoBehaviour {
     #region STATIC_ENUM_CONSTANTS
     public static readonly string PARAM_END_GAME = "EndGame";
+    public enum ENEMY_TYPE
+    {
+        SPIDER = 0,
+        WASP = 1
+    }
     #endregion
 
     #region FIELDS
@@ -12,6 +17,7 @@ public class EnemyController : MonoBehaviour {
     public int plasma = 2;
     public ParticleSystem deathPS;
     public Transform parentDeathPS;
+    public ENEMY_TYPE enemyType;
 
     public Animator animatorEnemy;
 
@@ -82,7 +88,7 @@ public class EnemyController : MonoBehaviour {
 
     protected virtual void DeathEnemy()
     {
-        GameManager.Instance.EnemyDestroyed();
+        GameManager.Instance.EnemyDestroyed(enemyType);
         GameManager.Instance.AddPlasma(plasma);
         stageEnemyInfoRef.AddToCache(this.gameObject);
 

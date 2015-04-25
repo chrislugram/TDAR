@@ -4,8 +4,10 @@
   <speedArmoredTower>0</speedArmoredTower>
   <bestTime>0</bestTime>
   <tutorial>0</tutorial>
-  <totalExplosiveBullet>0</totalExplosiveBullet>
-  <totalTraps>0</totalTraps>
-  <totalPulses>0</totalPulses>
+  <totalExplosiveBullet>1</totalExplosiveBullet>
+  <totalTraps>1</totalTraps>
+  <totalPulses>1</totalPulses>
   <totalPlasma>90</totalPlasma>
+  <totalSpiderKilled>0</totalSpiderKilled>
+  <totalWaspKilled>0</totalWaspKilled>
 </UserConfiguration>
